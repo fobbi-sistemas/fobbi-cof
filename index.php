@@ -1,0 +1,1 @@
+<?php header("location: pages/menu-principal/index"); ?>
