@@ -1,0 +1,21 @@
+CREATE TABLE `logsistema` (
+  	`id` int NOT NULL AUTO_INCREMENT,
+  	`projeto` varchar(200) DEFAULT NULL,
+  	`mensagem` text,
+  	`data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  	`resolvido` tinyint(1) DEFAULT '0',
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `formulario` (
+  	`id` int NOT NULL AUTO_INCREMENT,
+  	`ativo` BOOLEAN DEFAULT TRUE,
+  	`status` varchar(255) DEFAULT NULL,
+  	`cnpj` varchar(255) DEFAULT NULL,
+  	`canal` varchar(255) DEFAULT NULL,
+  	`contatoNome` varchar(255) DEFAULT NULL,
+  	`email` varchar(255) DEFAULT NULL,
+  	`telefone` varchar(255) DEFAULT NULL,
+  	`arquivo` varchar(255) DEFAULT NULL,
+	PRIMARY KEY (`id`)
+);
