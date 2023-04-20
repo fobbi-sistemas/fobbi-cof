@@ -1,0 +1,52 @@
+<?php 
+    require_once '../../header.php';
+    require_once '../menu.php';
+    require_once 'class/FormularioCadastro.php';
+
+    $formularioCadastro = new FormularioCadastro();
+    $erro = "<strong>Ops!</strong> Ocorreu um erro, entre em contato com o suporte.";
+    $list = array();
+    
+    try {
+        $list = $formularioCadastro->findByAll();
+    } catch (MyException $e) {
+        echo $erro;
+    }
+    
+?>
+
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header"> Lista de Formulário </div>
+
+        <div class="card-body">
+			<table class="table table-bordered table-sm" aria-describedby="Obras">
+				<thead class="thead-dark">
+					<tr>
+						<th style="width: 5%"> Código </th>
+						<th style="width: 85%"> CNPJ </th>
+						<th style="width: 10%"> Status </th>
+						<th style="max-width: 40px;min-width: 40px;"></th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<?php foreach ($list as $objEntity) { ?>
+    					<tr>
+    						<td><?php echo $objEntity['id']; ?></td>
+    						<td><?php echo $objEntity['cnpj']; ?></td>
+    						<td><?php echo $objEntity['status'] == "PENDENTE" ? 'Pendente' : 'Finalizado'; ?></td>
+    						<td class="text-center">
+								<a href="../cadastro?q=<?php echo $objEntity['id']; ?>" title="Editar" class="text-decoration-none">
+									<em class="bi bi-pencil"></em>
+								</a>
+    						</td>
+    					</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<?php include_once '../../footer.php'; ?>

@@ -11,6 +11,10 @@
 				</div>
 				
 				<div class="d-grid gap-2 mb-2">
+					<a href="../../formulario-cadastro/lista" class="btn btn-menu"> Formulário de Cadastro </a>
+				</div>
+				
+				<div class="d-grid gap-2 mb-2">
 					<a href="../../../login/realiza-logout.php" class="btn btn-secondary"> Sair </a>
 				</div>
 			</div>
