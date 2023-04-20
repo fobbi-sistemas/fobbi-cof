@@ -69,7 +69,7 @@
     					<label class="form-label">Status</label>
     					<select name="status" class="form-select form-select-sm">
     						<option value="PENDENTE" <?php echo isset($objFormularioCadastro['status']) && $objFormularioCadastro['status'] == "PENDENTE" ? 'selected' : null; ?>>Pendente</option>
-    						<option value="FINALIZADO" <?php echo isset($objFormularioCadastro['status']) && $objFormularioCadastro['status'] == "FINALIZADO" ? 'selected' : null; ?>>Finalizar</option>
+    						<option value="FINALIZADO" <?php echo isset($objFormularioCadastro['status']) && $objFormularioCadastro['status'] == "FINALIZADO" ? 'selected' : null; ?>>Finalizado</option>
     					</select>
     				</div>
                 </div>

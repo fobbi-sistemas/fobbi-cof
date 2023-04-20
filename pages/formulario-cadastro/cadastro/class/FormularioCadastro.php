@@ -8,7 +8,7 @@ class FormularioCadastro extends GenericClass
     public function findById($id)
     {
         try {
-            $cst = $this->con->conectar()->prepare("SELECT * FROM formulario WHERE id = 1;");
+            $cst = $this->con->conectar()->prepare("SELECT * FROM formulario WHERE id = :id;");
             $cst->bindParam(":id", $id, PDO::PARAM_INT);
             
             if (! $cst->execute()) {
