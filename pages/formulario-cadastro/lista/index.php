@@ -24,7 +24,9 @@
 				<thead class="thead-dark">
 					<tr>
 						<th style="width: 5%"> Código </th>
-						<th style="width: 85%"> CNPJ </th>
+						<th style="width: 45%"> CNPJ </th>
+						<th style="width: 30%"> Pessoa fez contato </th>
+						<th style="width: 10%"> Data </th>
 						<th style="width: 10%"> Status </th>
 						<th style="max-width: 40px;min-width: 40px;"></th>
 					</tr>
@@ -35,6 +37,10 @@
     					<tr>
     						<td><?php echo $objEntity['id']; ?></td>
     						<td><?php echo $objEntity['cnpj']; ?></td>
+    						<td><?php echo $objEntity['contatoNome']; ?></td>
+    						<td>
+                        	<?php echo date('d/m/Y H:i:s', strtotime($objEntity['data'])); ?>
+                        </td>
     						<td><?php echo $objEntity['status'] == "PENDENTE" ? 'Pendente' : 'Finalizado'; ?></td>
     						<td class="text-center">
 								<a href="../cadastro?q=<?php echo $objEntity['id']; ?>" title="Editar" class="text-decoration-none">

@@ -8,7 +8,7 @@ class FormularioCadastro extends GenericClass
     public function findByAll()
     {
         try {
-            $cst = $this->con->conectar()->prepare("SELECT id, cnpj, status FROM formulario WHERE ativo IS TRUE;");
+            $cst = $this->con->conectar()->prepare("SELECT id, cnpj, contatoNome, data, status FROM formulario WHERE ativo IS TRUE ORDER BY data;");
             
             if (! $cst->execute()) {
                 throw new MyException(implode(" ", $cst->errorInfo()));

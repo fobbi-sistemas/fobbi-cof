@@ -26,10 +26,10 @@ class Conexao
             $this->usuario = "root";
             $this->senha = "root";
         } else if ($projectStage->currentStage() == "PRODUCTION") {
-            $this->servidor = "fobbi_site.mysql.dbaas.com.br";
-            $this->banco = "fobbi_site";
-            $this->usuario = "fobbi_site";
-            $this->senha = "Hsys58si21@";
+            $this->servidor = "hsys_fobbisite.mysql.dbaas.com.br";
+            $this->banco = "hsys_fobbisite";
+            $this->usuario = "hsys_fobbisite";
+            $this->senha = "Hsys58@si";
         }
     }
 
