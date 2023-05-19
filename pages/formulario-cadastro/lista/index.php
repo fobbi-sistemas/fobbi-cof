@@ -24,8 +24,11 @@
 				<thead class="thead-dark">
 					<tr>
 						<th style="width: 5%"> Código </th>
-						<th style="width: 65%"> ID/CNPJ </th>
+						<th style="width: 21%"> Nome </th>
+						<th style="width: 21%"> ID/CNPJ </th>
+						<th style="width: 22%"> Loja </th>
 						<th style="width: 10%"> Tipo </th>
+						<th style="width: 10%"> Landing Page </th>
 						<th style="width: 10%"> Data </th>
 						<th style="width: 10%"> Status </th>
 						<th style="max-width: 40px;min-width: 40px;"></th>
@@ -36,8 +39,11 @@
 					<?php foreach ($list as $objEntity) { ?>
     					<tr>
     						<td><?php echo $objEntity['id']; ?></td>
+    						<td><?php echo $objEntity['nome']; ?></td>
     						<td><?php echo $objEntity['idCnpj']; ?></td>
+    						<td><?php echo $objEntity['loja']; ?></td>
     						<td><?php echo $objEntity['tipo'] == "INDICACAO" ? 'Indicação' : 'Solicitação'; ?></td>
+    						<td><?php echo $objEntity['formulario']; ?></td>
     						<td><?php echo date('d/m/Y H:i:s', strtotime($objEntity['data'])); ?></td>
     						<td><?php echo $objEntity['status'] == "PENDENTE" ? 'Pendente' : 'Finalizado'; ?></td>
     						<td class="text-center">

@@ -34,52 +34,9 @@
 
         <div class="card-body">
 			<form method="post" enctype="multipart/form-data">
+			
 				<div class="row">
-                    <div class="col-sm-12 col-md-3 mb-3">
-    					<label class="form-label">ID/CNPJ</label>
-    					<input type="text" name="idCnpj" class="form-control form-control-sm" required="required"
-    						   value="<?php echo isset($objFormularioCadastro['idCnpj']) ? $objFormularioCadastro['idCnpj'] : null; ?>">
-    				</div>
-    				
-    				<?php if ($objFormularioCadastro['tipo'] == "INDICACAO") { ?>
-    					<div class="col-sm-12 col-md-3 mb-3">
-        					<label class="form-label">Pessoa ou responsável estabelecimento</label>
-        					<input type="text" name="pessoaResponsavel" class="form-control form-control-sm" 
-        						   value="<?php echo isset($objFormularioCadastro['pessoaResponsavel']) ? $objFormularioCadastro['pessoaResponsavel'] : null; ?>">
-        				</div>
-        				
-        				<div class="col-sm-12 col-md-3 mb-3">
-        					<label class="form-label">E-mail</label>
-        					<input type="text" name="email" class="form-control form-control-sm"
-        						   value="<?php echo isset($objFormularioCadastro['email']) ? $objFormularioCadastro['email'] : null; ?>">
-        				</div>
-        				
-        				<div class="col-sm-12 col-md-3 mb-3">
-        					<label class="form-label">Indicação</label>
-        					<input type="text" name="indicacao" class="form-control form-control-sm"
-        						   value="<?php echo isset($objFormularioCadastro['indicacao']) ? $objFormularioCadastro['indicacao'] : null; ?>">
-        				</div>
-    				
-        				<div class="col-sm-12 col-md-12 mb-3">
-        					<label class="form-label">Comentário:</label>
-        					<textarea rows="4" name="comentario" class="form-control"><?php echo $objFormularioCadastro['comentario']; ?></textarea>
-        				</div>
-    				<?php } ?>
-    				
-    				<?php if ($objFormularioCadastro['tipo'] == "SOLICITACAO") { ?>
-    					<div class="col-sm-12 col-md-3 mb-3">
-        					<label class="form-label">Número ID vendedor</label>
-        					<input type="text" name="vendedor" class="form-control form-control-sm"
-        						   value="<?php echo isset($objFormularioCadastro['vendedor']) ? $objFormularioCadastro['vendedor'] : null; ?>">
-        				</div>
-        			
-            			<div class="col-sm-12 col-md-12 mb-3">
-        					<label class="form-label">Motivo de solicitação:</label>
-        					<textarea rows="4" name="motivoSolicitacao" class="form-control"><?php echo $objFormularioCadastro['motivoSolicitacao']; ?></textarea>
-        				</div>
-    				<?php } ?>
-    				
-    				<div class="col-sm-12 col-md-3 mb-3">
+					<div class="col-sm-12 col-md-3 mb-3">
     					<label class="form-label">Status</label>
     					<select name="status" class="form-select form-select-sm">
     						<option value="PENDENTE" <?php echo isset($objFormularioCadastro['status']) && $objFormularioCadastro['status'] == "PENDENTE" ? 'selected' : null; ?>>Pendente</option>
@@ -89,12 +46,76 @@
     				
     				<div class="col-sm-12 col-md-3 mb-3">
     					<label class="form-label">Tipo</label>
-    					<select name="tipo" class="form-select form-select-sm">
+    					<select name="tipo" class="form-select form-select-sm" disabled="disabled">
     						<option value="INDICACAO" <?php echo isset($objFormularioCadastro['tipo']) && $objFormularioCadastro['tipo'] == "INDICACAO" ? 'selected' : null; ?>>Indicação</option>
     						<option value="SOLICITACAO" <?php echo isset($objFormularioCadastro['tipo']) && $objFormularioCadastro['tipo'] == "SOLICITACAO" ? 'selected' : null; ?>>Solicitação</option>
+    						<option value="LANDING_PAGE" <?php echo isset($objFormularioCadastro['tipo']) && $objFormularioCadastro['tipo'] == "LANDING_PAGE" ? 'selected' : null; ?>>Landing Page</option>
     					</select>
     				</div>
-                </div>
+    				
+    				<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label">Landing Page</label>
+    					<select name="tipo" class="form-select form-select-sm" disabled="disabled">
+    						<option value="COTACAO" <?php echo isset($objFormularioCadastro['formulario']) && $objFormularioCadastro['formulario'] == "COTACAO" ? 'selected' : null; ?>>Cotação</option>
+    					</select>
+    				</div>
+				</div>
+				
+				<hr/>
+			
+				<div class="row">
+					 <div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label">ID/CNPJ</label>
+    					<input type="text" name="idCnpj" class="form-control form-control-sm"
+    						   value="<?php echo isset($objFormularioCadastro['idCnpj']) ? $objFormularioCadastro['idCnpj'] : null; ?>">
+    				</div>
+				
+					<div class="col-sm-12 col-md-3 mb-3">
+        				<label class="form-label">Nome</label>
+        				<input type="text" name="nome" class="form-control form-control-sm"
+        					value="<?php echo isset($objFormularioCadastro['nome']) ? $objFormularioCadastro['nome'] : null; ?>">
+        			</div>
+				
+    				<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label">Loja</label>
+    					<input type="text" name="loja" class="form-control form-control-sm"
+    						   value="<?php echo isset($objFormularioCadastro['loja']) ? $objFormularioCadastro['loja'] : null; ?>">
+    				</div>
+    				
+					<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label"> Pessoa ou responsável estabelecimento </label>
+    					<input type="text" name="pessoaResponsavel" class="form-control form-control-sm" 
+    						   value="<?php echo isset($objFormularioCadastro['pessoaResponsavel']) ? $objFormularioCadastro['pessoaResponsavel'] : null; ?>">
+    				</div>
+    				
+    				<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label"> E-mail </label>
+    					<input type="text" name="email" class="form-control form-control-sm"
+    						   value="<?php echo isset($objFormularioCadastro['email']) ? $objFormularioCadastro['email'] : null; ?>">
+    				</div>
+    				
+    				<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label"> Indicação </label>
+    					<input type="text" name="indicacao" class="form-control form-control-sm"
+    						   value="<?php echo isset($objFormularioCadastro['indicacao']) ? $objFormularioCadastro['indicacao'] : null; ?>">
+    				</div>
+    				
+    				<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label">Número ID vendedor</label>
+    					<input type="text" name="vendedor" class="form-control form-control-sm"
+    						   value="<?php echo isset($objFormularioCadastro['vendedor']) ? $objFormularioCadastro['vendedor'] : null; ?>">
+    				</div>
+    			</div>
+				
+				<div class="mb-3">
+					<label class="form-label"> Comentário </label>
+					<textarea rows="4" name="comentario" class="form-control"><?php echo $objFormularioCadastro['comentario']; ?></textarea>
+				</div>
+				
+    			<div class="col-sm-12 col-md-12 mb-3">
+					<label class="form-label">Motivo de solicitação:</label>
+					<textarea rows="4" name="motivoSolicitacao" class="form-control"><?php echo $objFormularioCadastro['motivoSolicitacao']; ?></textarea>
+				</div>
 				
 				<?php if (isset($objFormularioCadastro['arquivo'])) { ?>
 					<label class="form-label">Anexo</label>
