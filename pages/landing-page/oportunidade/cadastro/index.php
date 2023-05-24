@@ -1,5 +1,7 @@
 <?php
     use Src\Controller\LandingPage\Oportunidade\OportunidadeController;
+use Src\Util\StatusOportunidade;
+use Src\Util\Suborigem;
     
     require_once '../../../header.php';
     require_once '../menu.php';
@@ -36,10 +38,14 @@
 				<div class="row">
 					<div class="col-sm-12 col-md-3 mb-3">
     					<label class="form-label">Status</label>
-    					<select name="status" class="form-select form-select-sm">
-    						<option value="PENDENTE" <?php echo isset($objFormularioCadastro['status']) && $objFormularioCadastro['status'] == "PENDENTE" ? 'selected' : null; ?>>Pendente</option>
-    						<option value="FINALIZADO" <?php echo isset($objFormularioCadastro['status']) && $objFormularioCadastro['status'] == "FINALIZADO" ? 'selected' : null; ?>>Finalizado</option>
-    					</select>
+                        <select name="status" class="form-select form-select-sm mb-1">
+                            <?php foreach (StatusOportunidade::list() as $status) { ?>
+                                <option value="<?php echo $status; ?>"
+                                    <?php echo $objFormularioCadastro['status'] === $status ? "selected" : null; ?>>
+                                	<?php echo StatusOportunidade::descricao($objFormularioCadastro['status']); ?>
+                                </option>
+                            <?php } ?>
+                        </select>
     				</div>
     				
     				<div class="col-sm-12 col-md-3 mb-3">
@@ -52,9 +58,14 @@
     				</div>
     				
     				<div class="col-sm-12 col-md-3 mb-3">
-    					<label class="form-label">Landing Page</label>
-    					<select name="tipo" class="form-select form-select-sm" disabled="disabled">
-    						<option value="COTACAO" <?php echo isset($objFormularioCadastro['formulario']) && $objFormularioCadastro['formulario'] == "COTACAO" ? 'selected' : null; ?>>Cotação</option>
+    					<label class="form-label">Suborigem</label>
+    					<select name="formulario" class="form-select form-select-sm" disabled="disabled">
+    						<?php foreach (Suborigem::list() as $suborigem) { ?>
+                                <option value="<?php echo $suborigem; ?>"
+                                    <?php echo $objFormularioCadastro['formulario'] === $suborigem ? "selected" : null; ?>>
+                                	<?php echo Suborigem::descricao($objFormularioCadastro['formulario']); ?>
+                                </option>
+                            <?php } ?>
     					</select>
     				</div>
 				</div>
