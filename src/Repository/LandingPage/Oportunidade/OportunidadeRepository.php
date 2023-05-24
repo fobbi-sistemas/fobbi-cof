@@ -10,7 +10,7 @@ class OportunidadeRepository extends GenericRepository
     public function findAll()
     {
         try {
-            $sql = "SELECT id, nome, loja, formulario, idCnpj, data, status, tipo FROM formulario";
+            $sql = "SELECT id, nome, loja, formulario, idCnpj, data, status, tipo, telefone, email FROM formulario";
             $sql .= " WHERE ativo IS TRUE ORDER BY data DESC;";
             
             $cst = $this->con->conectar()->prepare($sql);

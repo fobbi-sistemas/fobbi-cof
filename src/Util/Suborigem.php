@@ -9,9 +9,9 @@ class Suborigem
         if ("LP_COTACAO" === $status) {
             return "LP-COTAÇÃO";
         } elseif ("LP_INDICACAO" === $status) {
-            return "LP-Indicação";
-        } elseif ("LP-SOLICITACAO" === $status) {
-            return "LO-Solicitação";
+            return "LP-INDICAÇÃO";
+        } elseif ("LP_SOLICITACAO" === $status) {
+            return "LP-SOLICITAÇÃO";
         } else {
             return "";
         }
@@ -19,7 +19,7 @@ class Suborigem
     
     public static function list()
     {
-        return array("LP_COTACAO", "LP_INDICACAO", "SOLICITACAO");
+        return array("LP_COTACAO", "LP_INDICACAO", "LP_SOLICITACAO");
     }
 }
 ?>

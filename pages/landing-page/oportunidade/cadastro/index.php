@@ -42,7 +42,7 @@ use Src\Util\Suborigem;
                             <?php foreach (StatusOportunidade::list() as $status) { ?>
                                 <option value="<?php echo $status; ?>"
                                     <?php echo $objFormularioCadastro['status'] === $status ? "selected" : null; ?>>
-                                	<?php echo StatusOportunidade::descricao($objFormularioCadastro['status']); ?>
+                                	<?php echo StatusOportunidade::descricao($status); ?>
                                 </option>
                             <?php } ?>
                         </select>
@@ -60,10 +60,11 @@ use Src\Util\Suborigem;
     				<div class="col-sm-12 col-md-3 mb-3">
     					<label class="form-label">Suborigem</label>
     					<select name="formulario" class="form-select form-select-sm" disabled="disabled">
+    						<option></option>
     						<?php foreach (Suborigem::list() as $suborigem) { ?>
                                 <option value="<?php echo $suborigem; ?>"
                                     <?php echo $objFormularioCadastro['formulario'] === $suborigem ? "selected" : null; ?>>
-                                	<?php echo Suborigem::descricao($objFormularioCadastro['formulario']); ?>
+                                	<?php echo Suborigem::descricao($suborigem); ?>
                                 </option>
                             <?php } ?>
     					</select>

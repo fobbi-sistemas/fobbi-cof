@@ -27,10 +27,10 @@ class Conexao
             $this->usuario = "hsys_fobbi";
             $this->senha = "Hsys58si23@";
         } elseif ($projectStage->currentStage() == "PRODUCTION") {
-            $this->servidor = "hsys_fobbisite.mysql.dbaas.com.br";
-            $this->banco = "hsys_fobbisite";
-            $this->usuario = "hsys_fobbisite";
-            $this->senha = "Hsys58@si";
+            $this->servidor = "localhost";
+            $this->banco = "fobbi";
+            $this->usuario = "ftpadmin";
+            $this->senha = "fkfgj@34hjf2";
         }
     }
 
