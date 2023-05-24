@@ -7,6 +7,9 @@ body {
 	width: 90% !important;
 	max-width: inherit;
 }
+.fs-7 {
+	font-size: 12px;
+}
 
 /***** TELA PRINCIPAL *****/
 .card {
@@ -38,16 +41,13 @@ body {
 }
 .btn-menu {
     color: #fff;
-    background-color: #007dba;
-    border-color: #007dba;
+    background-color: #49958B;
+    border-color: #49958B;
 }
 
 /***** MENU *****/
 .navbar-light {
-	background-color: #007dba !important;
-}
-.nav-link-white {
-	color: #fff !important;
+	background-color: #29323B !important;
 }
 .navbar-expand-lg .navbar-nav .nav-link {
 	padding-right: .8rem;

@@ -1,1 +1,1 @@
-<?php header("location: pages/menu-principal/index"); ?>
+<?php header("location: pages/menu/principal/admin");
