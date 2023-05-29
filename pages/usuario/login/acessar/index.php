@@ -13,7 +13,7 @@
     <link rel="shortcut icon" href="../../../../assets/images/favicon.ico"/>
     
     <!-- bootstrap css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
 	
 	<!-- css geral -->
     <link rel="stylesheet" href="../../../../assets/css/style.css"/>
@@ -39,15 +39,9 @@
 			<?php } ?>
 
 			<div class="d-grid gap-2">
-				<input type="submit" name="entrar" class="btn btn-menu" value="Entrar"/>
+				<input type="submit" name="entrar" class="btn btn-lg btn-menu" value="Entrar"/>
 			</div>
 		</form>
-	</div>
-	
-	<div class="text-center" style="margin-top: 100px;">
-		<a href="https://www.hsys.dev.br" target="_blank" class="text-dark text-decoration-none fs-6">
-			DESENVOLVIDO POR <img src="https://www.hsys.dev.br/images/logo-hsys-3.png" alt="..." class="ms-3" height="40"/>
-		</a>
 	</div>
 </body>
 </html>

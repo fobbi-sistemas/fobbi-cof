@@ -10,8 +10,8 @@ class OportunidadeRepository extends GenericRepository
     public function findAll()
     {
         try {
-            $sql = "SELECT id, nome, loja, formulario, idCnpj, data, status, tipo, telefone, email FROM formulario";
-            $sql .= " WHERE ativo IS TRUE ORDER BY data DESC;";
+            $sql = "SELECT id, nome, loja, formulario, idCnpj, data, status, tipo, telefone, email, indicacao";
+            $sql .= " FROM formulario WHERE ativo IS TRUE ORDER BY data DESC;";
             
             $cst = $this->con->conectar()->prepare($sql);
             
@@ -45,7 +45,8 @@ class OportunidadeRepository extends GenericRepository
         try {
             $sql = "UPDATE formulario SET status = :status, idCnpj = :idCnpj, pessoaResponsavel = :pessoaResponsavel,";
             $sql .= " email = :email, telefone = :telefone, indicacao = :indicacao, comentario = :comentario,";
-            $sql .= " vendedor = :vendedor, motivoSolicitacao = :motivoSolicitacao, nome = :nome, loja = :loja ";
+            $sql .= " motivoSolicitacao = :motivoSolicitacao, nome = :nome, loja = :loja,";
+            $sql .= " razaoSocial = :razaoSocial, nomeFantasia = :nomeFantasia";
             $sql .= " WHERE id = :id";
             
             $cst = $this->con->conectar()->prepare($sql);
@@ -57,10 +58,11 @@ class OportunidadeRepository extends GenericRepository
             $cst->bindParam(":telefone", $dados['telefone']);
             $cst->bindParam(":indicacao", $dados['indicacao']);
             $cst->bindParam(":comentario", $dados['comentario']);
-            $cst->bindParam(":vendedor", $dados['vendedor']);
             $cst->bindParam(":motivoSolicitacao", $dados['motivoSolicitacao']);
             $cst->bindParam(":nome", $dados['nome']);
             $cst->bindParam(":loja", $dados['loja']);
+            $cst->bindParam(":razaoSocial", $dados['razaoSocial']);
+            $cst->bindParam(":nomeFantasia", $dados['nomeFantasia']);
             
             if (! $cst->execute()) {
                 throw new MyException(implode(" ", $cst->errorInfo()));

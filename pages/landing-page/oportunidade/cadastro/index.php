@@ -74,10 +74,22 @@ use Src\Util\Suborigem;
 				<hr/>
 			
 				<div class="row">
-					 <div class="col-sm-12 col-md-3 mb-3">
+				 	<div class="col-sm-12 col-md-3 mb-3">
     					<label class="form-label">ID/CNPJ</label>
     					<input type="text" name="idCnpj" class="form-control form-control-sm"
     						   value="<?php echo isset($objFormularioCadastro['idCnpj']) ? $objFormularioCadastro['idCnpj'] : null; ?>">
+    				</div>
+    				
+    				<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label">Razão Social</label>
+    					<input type="text" name="razaoSocial" class="form-control form-control-sm"
+    						   value="<?php echo isset($objFormularioCadastro['razaoSocial']) ? $objFormularioCadastro['razaoSocial'] : null; ?>">
+    				</div>
+    				
+    				<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label">Nome Fantasia</label>
+    					<input type="text" name="nomeFantasia" class="form-control form-control-sm"
+    						   value="<?php echo isset($objFormularioCadastro['nomeFantasia']) ? $objFormularioCadastro['nomeFantasia'] : null; ?>">
     				</div>
 				
 					<div class="col-sm-12 col-md-3 mb-3">
@@ -105,15 +117,9 @@ use Src\Util\Suborigem;
     				</div>
     				
     				<div class="col-sm-12 col-md-3 mb-3">
-    					<label class="form-label"> Indicação </label>
+    					<label class="form-label"> Indicado por </label>
     					<input type="text" name="indicacao" class="form-control form-control-sm"
     						   value="<?php echo isset($objFormularioCadastro['indicacao']) ? $objFormularioCadastro['indicacao'] : null; ?>">
-    				</div>
-    				
-    				<div class="col-sm-12 col-md-3 mb-3">
-    					<label class="form-label">Número ID vendedor</label>
-    					<input type="text" name="vendedor" class="form-control form-control-sm"
-    						   value="<?php echo isset($objFormularioCadastro['vendedor']) ? $objFormularioCadastro['vendedor'] : null; ?>">
     				</div>
     				
     				<div class="col-sm-12 col-md-3 mb-3">
