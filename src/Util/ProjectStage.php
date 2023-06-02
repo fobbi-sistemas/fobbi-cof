@@ -15,7 +15,7 @@ class ProjectStage
 
     public function currentVersion()
     {
-        return "3.1";
+        return "4.0";
     }
     
 }
