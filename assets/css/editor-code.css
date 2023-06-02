@@ -1,0 +1,105 @@
+@import
+	url('https://fonts.googleapis.com/css?family=Roboto+Mono:300,400');
+
+#container-editor-code {
+	height: 850px;
+	background-color: #333;
+	width: 100%;
+	border-radius: 10px;
+}
+
+#content-box {
+	height: inherit;
+	width: 100%;
+}
+
+#textarea-input, #highlight-area {
+	position: absolute;
+	box-sizing: border-box;
+	overflow-y: auto;
+	overflow-x: none;
+	margin: 0;
+	font-size: 14px;
+	font-family: 'Roboto Mono', monospace;
+	height: inherit;
+	background-color: inherit;
+	width: 100%;
+	padding: 10px 10px 10px 34px;
+	caret-color: white;
+}
+
+#textarea-input {
+	resize: none;
+	border: none;
+	color: #161616;
+	padding-left: 49px;
+}
+
+#textarea-input::selection {
+	background: #bbb;
+	color: #bbb;
+}
+
+#highlight-area {
+	pointer-events: none;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+#highlight-area>span {
+	word-wrap: break-word;
+	white-space: pre-wrap;
+}
+
+ol.linenums {
+	margin: 0;
+	color: #656D78;
+	padding: 0;
+	font-family: 'Roboto Mono', monospace;
+}
+
+.linenums li {
+	padding-left: 15px;
+	border-left: .1px solid #656D78;
+}
+
+.highlight-default, .highlight-function-name, .highlight-delimiter,
+	.highlight-left-parentheses, .highlight-right-parentheses {
+	color: #ddd;
+}
+
+.highlight-keywordc1 {
+	color: #fa6400;
+}
+
+.highlight-argument {
+	color: #ff4da3;
+}
+
+.highlight-function {
+	color: #7972ff;
+}
+
+.highlight-keywordc2, .highlight-operator {
+	color: #FF005D;
+}
+
+.highlight-keywordc3, .highlight-preclass {
+	color: #3BAFDA;
+}
+
+.highlight-keywordc4, .highlight-number {
+	color: #9e42ff;
+}
+
+.highlight-keywordc5 {
+	color: #77CE2B;
+}
+
+.highlight-string {
+	color: #ffc91a;
+}
+
+.highlight-comment {
+	color: #656D78;
+}

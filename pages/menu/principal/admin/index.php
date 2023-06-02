@@ -7,7 +7,7 @@
 				</div>
 				
 				<div class="d-grid gap-2 mb-2">
-					<a href="../../banner-modal/cadastro" class="btn btn-lg btn-menu"> Site </a>
+					<a href="../../../site/home/cadastro" class="btn btn-lg btn-menu"> Site </a>
 				</div>
 				
 				<div class="d-grid gap-2 mb-2">
