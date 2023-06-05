@@ -69,6 +69,21 @@ use Src\Util\Suborigem;
                             <?php } ?>
     					</select>
     				</div>
+    				
+    				<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label"> Consulta de dados em API (receitaws.com.br) </label>
+    					<div>
+        					<?php if ($objFormularioCadastro['processadoDadosCnpj']) { ?>
+        						<span class="badge bg-success">
+                            		Consultado com sucesso
+                            	</span>
+        					<?php } else { ?>
+        						<span class="badge bg-warning text-dark">
+                            		Consulta em andamento
+                            	</span>
+        					<?php } ?>
+    					</div>
+    				</div>
 				</div>
 				
 				<hr/>
