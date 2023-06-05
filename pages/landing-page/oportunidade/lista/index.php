@@ -7,6 +7,7 @@ use Src\Util\Suborigem;
     require_once '../menu.php';
     
     $controller = new OportunidadeController();
+    $list = array();
     
     try {
         $list = $controller->findByAll();

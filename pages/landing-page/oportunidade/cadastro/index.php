@@ -107,12 +107,6 @@ use Src\Util\Suborigem;
     						   value="<?php echo isset($objFormularioCadastro['nomeFantasia']) ? $objFormularioCadastro['nomeFantasia'] : null; ?>">
     				</div>
 				
-					<div class="col-sm-12 col-md-3 mb-3">
-        				<label class="form-label">Nome</label>
-        				<input type="text" name="nome" class="form-control form-control-sm"
-        					value="<?php echo isset($objFormularioCadastro['nome']) ? $objFormularioCadastro['nome'] : null; ?>">
-        			</div>
-				
     				<div class="col-sm-12 col-md-3 mb-3">
     					<label class="form-label">Loja</label>
     					<input type="text" name="loja" class="form-control form-control-sm"

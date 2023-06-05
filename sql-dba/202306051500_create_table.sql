@@ -5,7 +5,7 @@ CREATE TABLE usuarioApi (
   	PRIMARY KEY (`id`)
 );
 
-
 ALTER TABLE formulario ADD COLUMN processadoDadosCnpj BOOLEAN DEFAULT FALSE;
 
-update formulario processadoDadosCnpj = true;
+UPDATE formulario processadoDadosCnpj = true;
+UPDATE formulario SET pessoaResponsavel = nome WHERE nome <> '';

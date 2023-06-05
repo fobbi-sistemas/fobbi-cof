@@ -10,7 +10,7 @@ class OportunidadeRepository extends GenericRepository
     public function findAll()
     {
         try {
-            $sql = "SELECT id, nome, loja, formulario, idCnpj, data, status, tipo, telefone, email, indicacao,";
+            $sql = "SELECT id, loja, formulario, idCnpj, data, status, tipo, telefone, email, indicacao,";
             $sql .= " processadoDadosCnpj FROM formulario WHERE ativo IS TRUE ORDER BY data DESC;";
             
             $cst = $this->con->conectar()->prepare($sql);
@@ -45,9 +45,8 @@ class OportunidadeRepository extends GenericRepository
         try {
             $sql = "UPDATE formulario SET status = :status, idCnpj = :idCnpj, pessoaResponsavel = :pessoaResponsavel,";
             $sql .= " email = :email, telefone = :telefone, indicacao = :indicacao, comentario = :comentario,";
-            $sql .= " motivoSolicitacao = :motivoSolicitacao, nome = :nome, loja = :loja,";
-            $sql .= " razaoSocial = :razaoSocial, nomeFantasia = :nomeFantasia";
-            $sql .= " WHERE id = :id";
+            $sql .= " motivoSolicitacao = :motivoSolicitacao, loja = :loja, razaoSocial = :razaoSocial,";
+            $sql .= " nomeFantasia = :nomeFantasia WHERE id = :id";
             
             $cst = $this->con->conectar()->prepare($sql);
             $cst->bindParam(":id", $id);
@@ -59,7 +58,6 @@ class OportunidadeRepository extends GenericRepository
             $cst->bindParam(":indicacao", $dados['indicacao']);
             $cst->bindParam(":comentario", $dados['comentario']);
             $cst->bindParam(":motivoSolicitacao", $dados['motivoSolicitacao']);
-            $cst->bindParam(":nome", $dados['nome']);
             $cst->bindParam(":loja", $dados['loja']);
             $cst->bindParam(":razaoSocial", $dados['razaoSocial']);
             $cst->bindParam(":nomeFantasia", $dados['nomeFantasia']);
