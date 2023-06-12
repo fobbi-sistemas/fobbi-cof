@@ -1,0 +1,12 @@
+CREATE TABLE site (
+	id INTEGER NOT NULL AUTO_INCREMENT,
+	modalAtivo BOOLEAN DEFAULT FALSE,
+	banner CHARACTER VARYING(255),
+	modal CHARACTER varying(255),
+	titulo1 TEXT,
+	titulo2 TEXT,
+	corTitulo1 CHARACTER VARYING(255),
+	corTitulo2 CHARACTER VARYING(255),
+	descricao TEXT,
+  	PRIMARY KEY (`id`)
+);

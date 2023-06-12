@@ -32,15 +32,14 @@ class MyException extends Exception {
     public function inserir($message) {
         try {
             $data = date('Y-m-d H:i:s');
-            $projeto = "divek-site-manager";
-            $sql = "INSERT INTO logsistema (projeto, mensagem, data, local) VALUES (:projeto, :mensagem, :data, :local);";
+            $projeto = "fobbi-site-admin";
+            $sql = "INSERT INTO logsistema (projeto, mensagem, data) VALUES (:projeto, :mensagem, :data);";
             
             
             $cst = $this->con->conectar()->prepare($sql);
             $cst->bindParam(":projeto", $projeto, PDO::PARAM_STR);
             $cst->bindParam(":mensagem", $message, PDO::PARAM_STR);
             $cst->bindParam(":data", $data);
-            $cst->bindParam(":local", $_SERVER['HTTP_REFERER'], PDO::PARAM_STR);
             
             if (!$cst->execute()) {
                 error_log("ERRO AO INSERIR O LOG SISTEMA ".implode(" ", $cst->errorInfo()));
