@@ -22,6 +22,11 @@ use Src\Util\Suborigem;
         <div class="card-header"> Lista de Formulário </div>
 
         <div class="card-body">
+        	
+        	<div class="mb-2 text-end">
+        		<a href="export_excel.php" target="_blank" class="btn btn-primary btn-sm">Exportar Planilha</a>
+        	</div>
+        
 			<table class="table table-bordered table-sm" aria-describedby="Obras">
 				<thead class="thead-dark">
 					<tr>
