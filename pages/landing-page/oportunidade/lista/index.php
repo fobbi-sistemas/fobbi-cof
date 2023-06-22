@@ -24,7 +24,7 @@ use Src\Util\Suborigem;
         <div class="card-body">
         	
         	<div class="mb-2 text-end">
-        		<a href="export_excel.php" target="_blank" class="btn btn-primary btn-sm">Exportar Planilha</a>
+        		<a href="export.php" target="_blank" class="btn btn-primary btn-sm">Exportar em CSV</a>
         	</div>
         
 			<table class="table table-bordered table-sm" aria-describedby="Obras">

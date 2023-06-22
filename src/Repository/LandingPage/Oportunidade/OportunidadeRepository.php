@@ -1,6 +1,7 @@
 <?php
 namespace Src\Repository\LandingPage\Oportunidade;
 
+use PDO;
 use Src\Repository\GenericRepository;
 use Src\Exception\MyException;
 
@@ -17,7 +18,7 @@ class OportunidadeRepository extends GenericRepository
             if (! $cst->execute()) {
                 throw new MyException(implode(" ", $cst->errorInfo()));
             }
-            return $cst->fetchAll();
+            return $cst->fetchAll(PDO::FETCH_ASSOC);
         } catch (MyException $ex) {
             throw new MyException($ex->getMessage());
         }
