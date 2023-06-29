@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Util ;
+namespace Src\Util;
 
 class ProjectStage
 {

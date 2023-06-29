@@ -20,10 +20,10 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	
 	<!-- geral css -->
-    <link rel="stylesheet" href="../../../../assets/css/style.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../../../assets/css/style.css"/>
     
     <!-- editor code css -->
-    <link rel="stylesheet" href="../../../../assets/css/editor-code.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../../../../assets/css/editor-code.css"/>
 	
 	<!-- color picker css -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.css">
@@ -32,10 +32,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- jquery js -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.0/dist/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     
     <!-- ckeditor -->
     <script type="text/javascript" src="../../../../assets/ckeditor_4.14.0_basic/ckeditor.js"></script>
+
+	<!-- color picker css -->
+    <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 
     <script type="text/javascript">
         window.onload = function()  {
@@ -43,7 +46,7 @@
         };
     </script>
     
-    <!-- color picker css -->
-    <script src="https://cdn.jsdelivr.net/npm/spectrum-colorpicker2/dist/spectrum.min.js"></script>
 </head>
 <body>
+
+<div id="loading"></div>

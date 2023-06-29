@@ -11,7 +11,7 @@ class OportunidadeRepository extends GenericRepository
     public function findAll()
     {
         try {
-            $sql = "SELECT * FROM formulario WHERE ativo IS TRUE ORDER BY data DESC;";
+            $sql = "SELECT * FROM oportunidade WHERE ativo IS TRUE ORDER BY data DESC;";
             
             $cst = $this->con->conectar()->prepare($sql);
             
@@ -27,7 +27,7 @@ class OportunidadeRepository extends GenericRepository
     public function findById($id)
     {
         try {
-            $cst = $this->con->conectar()->prepare("SELECT * FROM formulario WHERE id = :id;");
+            $cst = $this->con->conectar()->prepare("SELECT * FROM oportunidade WHERE id = :id;");
             $cst->bindParam(":id", $id);
             
             if (! $cst->execute()) {
@@ -43,7 +43,7 @@ class OportunidadeRepository extends GenericRepository
     public function save($id, $dados)
     {
         try {
-            $sql = "UPDATE formulario SET status = :status, idCnpj = :idCnpj, pessoaResponsavel = :pessoaResponsavel,";
+            $sql = "UPDATE oportunidade SET status = :status, idCnpj = :idCnpj, pessoaResponsavel = :pessoaResponsavel,";
             $sql .= " email = :email, telefone = :telefone, indicacao = :indicacao, comentario = :comentario,";
             $sql .= " motivoSolicitacao = :motivoSolicitacao, loja = :loja, razaoSocial = :razaoSocial,";
             $sql .= " nomeFantasia = :nomeFantasia WHERE id = :id";
