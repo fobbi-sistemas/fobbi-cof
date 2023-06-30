@@ -17,17 +17,30 @@ class StatusOportunidade
         }
     }
     
+    public static function descricaoFacilCatalogos($status)
+    {
+        if ("ATIVO" === $status) {
+            return "Ativo";
+        } elseif ("CADASTRADO" === $status) {
+            return "Cadastrado";
+        } elseif ("NAO_ENCONTRADO" === $status) {
+            return "Lead";
+        } else {
+            return "Consultando";
+        }
+    }
+    
     public static function cor($status)
     {
         
-        if ("PENDENTE" === $status) {
+        if ("NAO_ENCONTRADO" === $status) {
             return "bg-secondary";
         } elseif ("CADASTRADO" === $status) {
             return "bg-warning";
         } elseif ("ATIVO" === $status) {
             return "bg-success";
         } else {
-            return "bg-secondary";
+            return "text-dark";
         }
         
     }

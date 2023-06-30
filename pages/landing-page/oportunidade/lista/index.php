@@ -35,9 +35,9 @@ use Src\Util\Suborigem;
 						<th style="width: 10%"> Loja </th>
 						<th style="width: 10%"> Telefone </th>
 						<th style="width: 10%"> E-mail </th>
-						<th style="width: 10%"> Origem </th>
+						<th style="width: 5%"> Origem </th>
 						<th style="width: 10%"> Sub-origem </th>
-						<th style="width: 15%"> Data </th>
+						<th style="width: 10%"> Data </th>
 						<th style="width: 10%"> Indicado por </th>
 						<th style="width: 10%"> Status </th>
 						<th style="max-width: 40px;min-width: 40px;"></th>
@@ -61,9 +61,9 @@ use Src\Util\Suborigem;
 
 							<td class="fs-7"><?php echo $objEntity['indicacao']; ?></td>
     						
-    						<td>
-                            	<span class="badge <?php echo StatusOportunidade::cor($objEntity['status']); ?>">
-                            		<?php echo StatusOportunidade::descricao($objEntity['status']); ?>
+                            <td>
+                            	<span class="badge <?php echo StatusOportunidade::cor($objEntity['statusFacilCatalogos']); ?>">
+                            		<?php echo StatusOportunidade::descricaoFacilCatalogos($objEntity['statusFacilCatalogos']); ?>
                             	</span>
                             </td>
                             
