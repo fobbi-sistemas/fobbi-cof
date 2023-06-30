@@ -19,7 +19,7 @@
 				</div>
 				
 				<div class="d-grid gap-2 mb-2">
-					<a href="#" class="btn btn-lg btn-menu"> Campos de dados </a>
+					<a href="../../../campo-dados/dados/cadastro" class="btn btn-lg btn-menu"> Campos de dados </a>
 				</div>
 				
 				<div class="d-grid gap-2 mb-2">

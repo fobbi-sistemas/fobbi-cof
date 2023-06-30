@@ -4,15 +4,18 @@ namespace Src\Controller\LandingPage\Oportunidade;
 use Exception;
 use Src\Repository\LandingPage\Oportunidade\OportunidadeRepository;
 use Src\Controller\GenericController;
+use Src\Repository\LandingPage\Oportunidade\OportunidadeCampoRepository;
 
 class OportunidadeController extends GenericController
 {
 
     protected $repository;
+    protected $campoRepository;
     
     public function __construct()
     {
         $this->repository = new OportunidadeRepository();
+        $this->campoRepository = new OportunidadeCampoRepository();
     }
     
     // METODOS DE CONSULTA
@@ -29,6 +32,27 @@ class OportunidadeController extends GenericController
     {
         try {
             return $this->repository->findById($id);
+        } catch (Exception $ex) {
+            throw new Exception($this->getMessagesError(null));
+        }
+    }
+    
+    public function findByCampo($id)
+    {
+        try {
+            return $this->campoRepository->findByOportunidade($id);
+        } catch (Exception $ex) {
+            throw new Exception($this->getMessagesError(null));
+        }
+    }
+    
+    public function findValor($campo)
+    {
+        try {
+            if ($campo['tipo'] == "SELECAO") {
+                return $this->campoRepository->findBySelecao($campo['valor']);
+            }
+            return null;
         } catch (Exception $ex) {
             throw new Exception($this->getMessagesError(null));
         }

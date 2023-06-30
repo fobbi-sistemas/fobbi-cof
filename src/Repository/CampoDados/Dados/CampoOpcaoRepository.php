@@ -1,5 +1,5 @@
 <?php
-namespace Src\Repository\Canais\Dados;
+namespace Src\Repository\CampoDados\Dados;
 
 use PDO;
 use PDOException;
@@ -7,14 +7,15 @@ use Exception;
 use Src\Repository\GenericRepository;
 use Src\Exception\MyException;
 
-class PersonalizadoRepository extends GenericRepository
+class CampoOpcaoRepository extends GenericRepository
 {
 
-    public function findAll()
+    public function findByIdCampo($idCampo)
     {
         try {
-            $sql = "SELECT * FROM campo WHERE ativo IS TRUE ORDER BY nome;";
+            $sql = "SELECT * FROM campoOpcao WHERE ativo IS TRUE AND idCampo = :idCampo ORDER BY ordem;";
             $cst = $this->con->conectar()->prepare($sql);
+            $cst->bindParam(":idCampo", $idCampo);
             
             if (! $cst->execute()) {
                 throw new PDOException(implode(" ", $cst->errorInfo()));
@@ -28,13 +29,13 @@ class PersonalizadoRepository extends GenericRepository
     public function findById($id)
     {
         try {
-            $cst = $this->con->conectar()->prepare("SELECT * FROM formulario WHERE id = :id;");
+            $cst = $this->con->conectar()->prepare("SELECT * FROM campoOpcao WHERE id = :id;");
             $cst->bindParam(":id", $id);
             
             if (! $cst->execute()) {
                 throw new PDOException(implode(" ", $cst->errorInfo()));
             }
-            return $cst->fetch();
+            return $cst->fetch(PDO::FETCH_ASSOC);
         } catch (Exception $ex) {
             throw new MyException($ex->getMessage());
         }
@@ -44,7 +45,7 @@ class PersonalizadoRepository extends GenericRepository
     public function save($dados)
     {
         $id = null;
-        if (empty($dados['id'])) {
+        if (empty($dados['idCampoOpcao'])) {
             $id = $this->insert($dados);
         } else {
             $id = $this->update($dados);
@@ -52,15 +53,32 @@ class PersonalizadoRepository extends GenericRepository
         return $id;
     }
     
-    public function insert($dados)
+    public function delete($id)
     {
         try {
-            $sql = "INSERT INTO campo (nome, tipo, ativo) VALUES (:nome, :tipo, TRUE);";
+            $sql = "UPDATE campoOpcao SET ativo = FALSE WHERE id = :id;";
+            
+            $cst = $this->con->conectar()->prepare($sql);
+            $cst->bindParam(":id", $id, PDO::PARAM_INT);
+            
+            if (! $cst->execute()) {
+                throw new PDOException(implode(" ", $cst->errorInfo()));
+            }
+        } catch (Exception $ex) {
+            throw new MyException($ex->getMessage());
+        }
+    }
+    
+    private function insert($dados)
+    {
+        try {
+            $sql = "INSERT INTO campoOpcao (nome, ordem, ativo, idCampo) VALUES (:nome, :ordem, TRUE, :idCampo);";
             
             $conexao = $this->con->conectar();
             $cst = $conexao->prepare($sql);
-            $cst->bindParam(":nome", $dados['nome'], PDO::PARAM_STR);
-            $cst->bindParam(":tipo", $dados['tipo'], PDO::PARAM_STR);
+            $cst->bindParam(":nome", $dados['nomeCampoOpcao'], PDO::PARAM_STR);
+            $cst->bindParam(":ordem", $dados['ordemCampoOpcao'], PDO::PARAM_STR);
+            $cst->bindParam(":idCampo", $dados['idCampo'], PDO::PARAM_INT);
             
             if (! $cst->execute()) {
                 throw new PDOException(implode(" ", $cst->errorInfo()));
@@ -71,20 +89,20 @@ class PersonalizadoRepository extends GenericRepository
         }
     }
     
-    public function update($dados)
+    private function update($dados)
     {
         try {
-            $sql = "UPDATE campo SET nome = :nome, tipo = :tipo WHERE id = :id;";
+            $sql = "UPDATE campoOpcao SET nome = :nome, ordem = :ordem WHERE id = :id;";
             
             $cst = $this->con->conectar()->prepare($sql);
-            $cst->bindParam(":id", $dados['id'], PDO::PARAM_INT);
-            $cst->bindParam(":nome", $dados['nome'], PDO::PARAM_STR);
-            $cst->bindParam(":tipo", $dados['tipo'], PDO::PARAM_STR);
+            $cst->bindParam(":id", $dados['idCampoOpcao'], PDO::PARAM_INT);
+            $cst->bindParam(":nome", $dados['nomeCampoOpcao'], PDO::PARAM_STR);
+            $cst->bindParam(":ordem", $dados['ordemCampoOpcao'], PDO::PARAM_STR);
             
             if (! $cst->execute()) {
                 throw new PDOException(implode(" ", $cst->errorInfo()));
             }
-            return $dados['id'];
+            return $dados['idCampoOpcao'];
         } catch (Exception $ex) {
             throw new MyException($ex->getMessage());
         }

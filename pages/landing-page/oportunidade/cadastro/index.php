@@ -8,10 +8,12 @@ use Src\Util\Suborigem;
     
     $controller = new OportunidadeController();
     $id = isset($_GET['q']) ? $_GET['q'] : null;
+    $campoList = array();
     
     if (! empty($id)) {
         try {
             $objOportunidade = $controller->findById($id);
+            $campoList = $controller->findByCampo($id);
         } catch (Exception $ex) {
             echo $ex->getMessage();
         }
@@ -136,6 +138,16 @@ use Src\Util\Suborigem;
         				<input type="text" name="telefone" class="form-control form-control-sm"
         					value="<?php echo isset($objOportunidade['telefone']) ? $objOportunidade['telefone'] : null; ?>">
         			</div>
+    			</div>
+    			
+    			<div class="row">
+					<?php foreach ($campoList as $campo) { ?>
+						<div class="col-sm-12 col-md-3 mb-3">
+    						<label class="form-label"> <?php echo $campo['nome']; ?> </label>
+    						<input type="text" class="form-control form-control-sm" disabled="disabled"
+        					value="<?php echo $controller->findValor($campo); ?>">
+        				</div>
+					<?php } ?>
     			</div>
 				
 				<div class="mb-3">

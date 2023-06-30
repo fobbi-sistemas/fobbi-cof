@@ -7,4 +7,6 @@ $('#modalPersonalizar').on('show.bs.modal', function (event) {
   	document.getElementsByName('id')[0].value = id;
   	document.getElementsByName('nome')[0].value = nome;
   	document.getElementsByName('tipo')[0].value = tipo;
+  	
+  	changeTipo();
 });

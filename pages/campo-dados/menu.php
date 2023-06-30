@@ -14,13 +14,6 @@
             
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
     			<ul class="navbar-nav me-auto">
-			        <li class="nav-item">
-      					<a class="nav-link" aria-current="page" href="../../dados/lista"> CANAIS </a>
-        			</li>
-        			
-        			<li class="nav-item">
-      					<a class="nav-link" aria-current="page" href="../../formulario/lista"> FORMULÁRIOS </a>
-        			</li>
     			</ul>
     		</div>
         </div>

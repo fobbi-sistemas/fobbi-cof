@@ -1,9 +1,9 @@
 <?php
-namespace Src\Controller\Canais\Dados;
+namespace Src\Controller\CampoDados\Dados;
 
 use Exception;
 use Src\Controller\GenericController;
-use Src\Repository\Canais\Dados\PersonalizadoRepository;
+use Src\Repository\CampoDados\Dados\PersonalizadoRepository;
 
 class PersonalizadoController extends GenericController
 {

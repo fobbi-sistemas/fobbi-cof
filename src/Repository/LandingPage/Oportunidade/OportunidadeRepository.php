@@ -43,9 +43,9 @@ class OportunidadeRepository extends GenericRepository
     public function save($id, $dados)
     {
         try {
-            $sql = "UPDATE oportunidade SET status = :status, idCnpj = :idCnpj, pessoaResponsavel = :pessoaResponsavel,";
-            $sql .= " email = :email, telefone = :telefone, indicacao = :indicacao, comentario = :comentario,";
-            $sql .= " motivoSolicitacao = :motivoSolicitacao, loja = :loja, razaoSocial = :razaoSocial,";
+            $sql = "UPDATE oportunidade SET status = :status, idCnpj = :idCnpj, pessoaResponsavel =";
+            $sql .= " :pessoaResponsavel, email = :email, telefone = :telefone, indicacao = :indicacao, comentario =";
+            $sql .= " :comentario, motivoSolicitacao = :motivoSolicitacao, loja = :loja, razaoSocial = :razaoSocial,";
             $sql .= " nomeFantasia = :nomeFantasia WHERE id = :id";
             
             $cst = $this->con->conectar()->prepare($sql);
