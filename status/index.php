@@ -1,0 +1,1 @@
+<?php header("location: ../pages/sistema/status/log/"); ?>
