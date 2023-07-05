@@ -46,6 +46,7 @@ INSERT INTO formulario VALUES (DEFAULT, 'Solicitar', 'www.fobbi.com.br/indicacao
 INSERT INTO formulario VALUES (DEFAULT, 'Cotação', 'www.fobbi.com.br/distribuidor-material-construcao-cotacao');
 
 INSERT INTO formularioCampo VALUES (DEFAULT, 1, 1);
+INSERT INTO formularioCampo VALUES (DEFAULT, 2, 1);
 
 -- CAMPO OPORTUNIDADECAMPO
 CREATE TABLE oportunidadeCampo (
