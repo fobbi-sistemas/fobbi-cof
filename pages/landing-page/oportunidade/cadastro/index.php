@@ -73,6 +73,14 @@ use Src\Util\Suborigem;
     				</div>
     				
     				<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label">ID Exact</label>
+    					<input type="text" name="idExact" class="form-control form-control-sm" disabled="disabled"
+    						   value="<?php echo isset($objOportunidade['idExact']) ? $objOportunidade['idExact'] : null; ?>">
+    				</div>
+				</div>
+    				
+				<div class="row">	
+    				<div class="col-sm-12 col-md-3 mb-3">
     					<label class="form-label"> Consulta de dados em API (receitaws.com.br) </label>
     					<div>
         					<?php if ($objOportunidade['processadoDadosCnpj']) { ?>
