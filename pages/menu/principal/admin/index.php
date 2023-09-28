@@ -6,24 +6,24 @@
 					<img src="../../../../assets/images/Logo_Fobbi.png" width="120" alt=""/>
 				</div>
 				
-				<div class="d-grid gap-2 mb-2">
+				<div class="d-grid gap-2 mb-1">
 					<a href="../../../site/home/cadastro" class="btn btn-lg btn-menu"> Site </a>
 				</div>
 				
-				<div class="d-grid gap-2 mb-2">
+				<div class="d-grid gap-2 mb-1">
 					<a href="#" class="btn btn-lg btn-menu"> Canais </a>
 				</div>
 				
-				<div class="d-grid gap-2 mb-2">
+				<div class="d-grid gap-2 mb-1">
 					<a href="../../../landing-page/oportunidade/lista" class="btn btn-lg btn-menu"> Oportunidades </a>
 				</div>
 				
-				<div class="d-grid gap-2 mb-2">
+				<div class="d-grid gap-2 mb-1">
 					<a href="../../../campo-dados/dados/cadastro" class="btn btn-lg btn-menu"> Campos de dados </a>
 				</div>
 				
-				<div class="d-grid gap-2 mb-2">
-					<a href="../../../login/realiza-logout.php" class="btn btn-lg btn-dark"> Sair </a>
+				<div class="d-grid gap-2">
+					<a href="../../../login/realiza-logout.php" class="btn btn-lg btn-light"> Sair </a>
 				</div>
 			</div>
 		</div>
