@@ -45,7 +45,7 @@ class OportunidadeRepository extends GenericRepository
         try {
             $sql = "UPDATE oportunidade SET status = :status, idCnpj = :idCnpj, pessoaResponsavel =";
             $sql .= " :pessoaResponsavel, email = :email, telefone = :telefone, indicacao = :indicacao, comentario =";
-            $sql .= " :comentario, motivoSolicitacao = :motivoSolicitacao, loja = :loja, razaoSocial = :razaoSocial,";
+            $sql .= " :comentario, comentario = :comentario, loja = :loja, razaoSocial = :razaoSocial,";
             $sql .= " nomeFantasia = :nomeFantasia WHERE id = :id";
             
             $cst = $this->con->conectar()->prepare($sql);
@@ -57,7 +57,6 @@ class OportunidadeRepository extends GenericRepository
             $cst->bindParam(":telefone", $dados['telefone']);
             $cst->bindParam(":indicacao", $dados['indicacao']);
             $cst->bindParam(":comentario", $dados['comentario']);
-            $cst->bindParam(":motivoSolicitacao", $dados['motivoSolicitacao']);
             $cst->bindParam(":loja", $dados['loja']);
             $cst->bindParam(":razaoSocial", $dados['razaoSocial']);
             $cst->bindParam(":nomeFantasia", $dados['nomeFantasia']);

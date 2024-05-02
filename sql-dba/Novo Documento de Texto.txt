@@ -1,0 +1,2 @@
+DELETE FROM campoOpcao WHERE idCampo = 2;
+DELETE FROM campo WHERE id = 2;

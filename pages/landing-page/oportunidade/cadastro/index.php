@@ -163,11 +163,6 @@ use Src\Util\Suborigem;
 					<textarea rows="4" name="comentario" class="form-control"><?php echo $objOportunidade['comentario']; ?></textarea>
 				</div>
 				
-    			<div class="col-sm-12 col-md-12 mb-3">
-					<label class="form-label">Motivo de solicitação:</label>
-					<textarea rows="4" name="motivoSolicitacao" class="form-control"><?php echo $objOportunidade['motivoSolicitacao']; ?></textarea>
-				</div>
-				
 				<?php if (isset($objOportunidade['arquivo'])) { ?>
 					<label class="form-label">Anexo</label>
                     <div class="mb-3">
