@@ -166,7 +166,7 @@ use Src\Util\Suborigem;
 				<?php if (isset($objOportunidade['arquivo'])) { ?>
 					<label class="form-label">Anexo</label>
                     <div class="mb-3">
-                        <a href="../../../../files/formulario/<?php echo $objOportunidade['arquivo']; ?>" class="text-decoration-none" target="_blank">
+                        <a href="../../../../../files/formulario/<?php echo $objOportunidade['arquivo']; ?>" class="text-decoration-none" target="_blank">
                         	<i class="bi bi-cloud-download-fill me-2"></i>BAIXAR ARQUIVO
                         </a>
                     </div>
