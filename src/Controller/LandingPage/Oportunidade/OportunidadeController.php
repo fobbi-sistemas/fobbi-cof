@@ -19,10 +19,10 @@ class OportunidadeController extends GenericController
     }
     
     // METODOS DE CONSULTA
-    public function findByAll()
+    public function findAll($filter, $page)
     {
         try {
-            return $this->repository->findAll();
+            return $this->repository->findAll($filter, $page);
         } catch (Exception $ex) {
             throw new Exception($this->getMessagesError(null));
         }
@@ -63,6 +63,15 @@ class OportunidadeController extends GenericController
     {
         try {
             return $this->repository->save($id, $dados);
+        } catch (Exception $ex) {
+            throw new Exception($this->getMessagesError(null));
+        }
+    }
+    
+    public function delete($id)
+    {
+        try {
+            return $this->repository->delete($id);
         } catch (Exception $ex) {
             throw new Exception($this->getMessagesError(null));
         }

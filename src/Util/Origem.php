@@ -1,7 +1,7 @@
 <?php
 namespace Src\Util;
 
-class Suborigem
+class Origem
 {
 
     public static function descricao($status)

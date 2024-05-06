@@ -49,5 +49,10 @@ class StatusOportunidade
     {
         return array("PENDENTE", "CADASTRADO", "ATIVO");
     }
+    
+    public static function listFacilCatalogos()
+    {
+        return array("NAO_ENCONTRADO", "ATIVO", "CADASTRADO", "CONSULTANDO");
+    }
 }
 ?>

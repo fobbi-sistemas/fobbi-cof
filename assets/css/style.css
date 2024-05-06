@@ -10,6 +10,10 @@ body {
 .fs-7 {
 	font-size: 12px;
 }
+.pagination .active a {
+	background-color: rgba(9, 30, 66, 0.08) !important;
+	box-shadow: inset 0px 1px 11px -4px #999 !important;	
+}
 
 /***** TELA PRINCIPAL *****/
 .card {

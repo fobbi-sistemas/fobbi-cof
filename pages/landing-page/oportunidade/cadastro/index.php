@@ -1,23 +1,14 @@
 <?php
     use Src\Controller\LandingPage\Oportunidade\OportunidadeController;
-use Src\Util\StatusOportunidade;
-use Src\Util\Suborigem;
-    
+    use Src\Util\StatusOportunidade;
+    use Src\Util\Origem;
+     
     require_once '../../../header.php';
     require_once '../menu.php';
     
     $controller = new OportunidadeController();
     $id = isset($_GET['q']) ? $_GET['q'] : null;
     $campoList = array();
-    
-    if (! empty($id)) {
-        try {
-            $objOportunidade = $controller->findById($id);
-            $campoList = $controller->findByCampo($id);
-        } catch (Exception $ex) {
-            echo $ex->getMessage();
-        }
-    }
     
     if (isset($_POST['save'])) {
 		try {
@@ -26,6 +17,24 @@ use Src\Util\Suborigem;
 		} catch (Exception $ex) {
 		    echo $ex->getMessage();
 		}
+    }
+    
+    if (isset($_POST['remove'])) {
+        try {
+            $controller->delete($id);
+            header('location: ../lista');
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
+    }
+    
+    if (! empty($id)) {
+        try {
+            $objOportunidade = $controller->findById($id);
+            $campoList = $controller->findByCampo($id);
+        } catch (Exception $ex) {
+            echo $ex->getMessage();
+        }
     }
     
 ?>
@@ -39,8 +48,8 @@ use Src\Util\Suborigem;
 			
 				<div class="row">
 					<div class="col-sm-12 col-md-3 mb-3">
-    					<label class="form-label">Status</label>
-                        <select name="status" class="form-select form-select-sm mb-1">
+    					<label class="form-label"> Status </label>
+                        <select name="status" class="form-select form-select-sm mb-1" disabled="disabled">
                             <?php foreach (StatusOportunidade::list() as $status) { ?>
                                 <option value="<?php echo $status; ?>"
                                     <?php echo $objOportunidade['status'] === $status ? "selected" : null; ?>>
@@ -63,10 +72,10 @@ use Src\Util\Suborigem;
     					<label class="form-label">Suborigem</label>
     					<select name="formulario" class="form-select form-select-sm" disabled="disabled">
     						<option></option>
-    						<?php foreach (Suborigem::list() as $suborigem) { ?>
+    						<?php foreach (Origem::list() as $suborigem) { ?>
                                 <option value="<?php echo $suborigem; ?>"
                                     <?php echo $objOportunidade['formulario'] === $suborigem ? "selected" : null; ?>>
-                                	<?php echo Suborigem::descricao($suborigem); ?>
+                                	<?php echo Origem::descricao($suborigem); ?>
                                 </option>
                             <?php } ?>
     					</select>
@@ -79,9 +88,9 @@ use Src\Util\Suborigem;
     				</div>
 				</div>
     				
-				<div class="row">	
+				<div class="row">
     				<div class="col-sm-12 col-md-3 mb-3">
-    					<label class="form-label"> Consulta de dados em API (receitaws.com.br) </label>
+    					<label class="form-label mb-0"> Consulta de dados em API (receitaws.com.br) </label>
     					<div>
         					<?php if ($objOportunidade['processadoDadosCnpj']) { ?>
         						<span class="badge bg-success">
@@ -160,7 +169,12 @@ use Src\Util\Suborigem;
 				
 				<div class="mb-3">
 					<label class="form-label"> Comentário </label>
-					<textarea rows="4" name="comentario" class="form-control"><?php echo $objOportunidade['comentario']; ?></textarea>
+					<textarea rows="4" name="comentario" class="form-control" disabled="disabled"><?php echo $objOportunidade['comentario']; ?></textarea>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label"> Comentário atendimento </label>
+					<textarea rows="4" name="observacao" class="form-control"><?php echo $objOportunidade['observacao']; ?></textarea>
 				</div>
 				
 				<?php if (isset($objOportunidade['arquivo'])) { ?>
@@ -172,13 +186,25 @@ use Src\Util\Suborigem;
                     </div>
                 <?php } ?>
                 
-            	<div class="text-end">
-            		<a href="../lista" class="btn btn-light btn-sm">Voltar</a>
-					<input type="submit" value="Salvar" name="save" class="btn btn-success btn-sm">
+                <hr/>
+                
+                <div class="row">
+                	<div class="col">
+						<button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+								data-bs-target="#modalExcluir">
+							Excluir
+						</button>
+					</div>
+                
+                	<div class="col text-end">
+                		<a href="../lista" class="btn btn-light btn-sm">Voltar</a>
+    					<input type="submit" value="Salvar" name="save" class="btn btn-success btn-sm">
+                	</div>
             	</div>
 			</form>
 		</div>
 	</div>
 </div>
 
+<?php require_once '../../../modalConfirmRemove.php'; ?>
 <?php require_once '../../../footer.php'; ?>
