@@ -81,7 +81,7 @@
     					<tr>
     						<th style="width: 5%"> Código </th>
     						<th style="width: 12%"> ID/CNPJ </th>
-    						<th style="width: 20%"> Loja </th>
+    						<th style="width: 20%"> Razão social </th>
     						<th style="width: 5%"> Telefone </th>
     						<th style="width: 8%"> E-mail </th>
     						<th style="width: 15%"> Origem </th>
@@ -97,7 +97,7 @@
         					<tr>
         						<td class="fs-7"><?php echo $objEntity['id']; ?></td>
         						<td class="fs-7"><?php echo $objEntity['idCnpj']; ?></td>
-        						<td class="fs-7"><?php echo $objEntity['loja']; ?></td>
+        						<td class="fs-7"><?php echo $objEntity['razaoSocial']; ?></td>
         						<td class="fs-7"><?php echo $objEntity['telefone']; ?></td>
         						<td class="fs-7"><?php echo $objEntity['email']; ?></td>
         						<td class="fs-7">
