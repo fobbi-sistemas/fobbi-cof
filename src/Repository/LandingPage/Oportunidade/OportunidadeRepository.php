@@ -46,11 +46,11 @@ class OportunidadeRepository extends GenericRepository
             $cst = $this->con->conectar()->prepare($sql);
             
             if (! empty($filter['dataCadastroInicial'])) {
-                $cst->bindValue(":dataCadastroInicial", $filter['dataCadastroInicial'], PDO::PARAM_STR);
+                $cst->bindValue(":dataCadastroInicial", $filter['dataCadastroInicial'] . " 00:00:00", PDO::PARAM_STR);
             }
             
             if (! empty($filter['dataCadastroFinal'])) {
-                $cst->bindValue(":dataCadastroFinal", $filter['dataCadastroFinal'], PDO::PARAM_STR);
+                $cst->bindValue(":dataCadastroFinal", $filter['dataCadastroFinal'] . " 23:59:59", PDO::PARAM_STR);
             }
             
             if (! empty($filter['status']) && $filter['status'] != "CONSULTANDO") {

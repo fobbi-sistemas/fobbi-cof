@@ -80,14 +80,18 @@
     				<thead class="thead-dark">
     					<tr>
     						<th style="width: 5%"> Código </th>
-    						<th style="width: 12%"> ID/CNPJ </th>
-    						<th style="width: 20%"> Loja </th>
+    						<th style="width: 10%"> Marca </th>
+    						<th style="width: 10%"> ID/CNPJ </th>
+    						<th style="width: 10%"> Loja </th>
     						<th style="width: 5%"> Telefone </th>
-    						<th style="width: 8%"> E-mail </th>
-    						<th style="width: 15%"> Origem </th>
-    						<th style="width: 10%"> Data </th>
-    						<th style="width: 15%"> Atendimento </th>
-    						<th style="width: 10%"> Status </th>
+    						<th style="width: 5%"> E-mail </th>
+    						<th style="width: 5%"> Origem </th>
+    						<th style="width: 5%"> Data </th>
+    						<th style="width: 10%"> Atendimento </th>
+    						<th style="width: 5%"> Status </th>
+    						<th style="width: 10%"> Data último pedido </th>
+    						<th style="width: 10%"> Valor último pedido </th>
+    						<th style="width: 10%"> Loja último pedido </th>
     						<th style="max-width: 40px;min-width: 40px;"></th>
     					</tr>
     				</thead>
@@ -96,6 +100,7 @@
     					<?php foreach ($list as $objEntity) { ?>
         					<tr>
         						<td class="fs-7"><?php echo $objEntity['id']; ?></td>
+        						<td class="fs-7"><?php echo $objEntity['marca']; ?></td>
         						<td class="fs-7"><?php echo $objEntity['idCnpj']; ?></td>
         						<td class="fs-7"><?php echo $objEntity['loja']; ?></td>
         						<td class="fs-7"><?php echo $objEntity['telefone']; ?></td>
@@ -113,6 +118,11 @@
                                 		<?php echo StatusOportunidade::descricaoFacilCatalogos($objEntity['statusFacilCatalogos']); ?>
                                 	</span>
                                 </td>
+                                
+                                <td class="fs-7"><?php echo empty($objEntity['dataUltimoPedido']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataUltimoPedido'])); ?></td>
+                                
+                                <td class="fs-7"><?php echo empty($objEntity['valorUltimoPedido']) ? null : "R$ " . number_format($objEntity['valorUltimoPedido'], 2, ',', '.'); ?></td>
+                                <td class="fs-7"><?php echo $objEntity['lojaUltimoPedido']; ?></td>
                                 
         						<td class="text-center">
     								<a href="../cadastro?q=<?php echo $objEntity['id']; ?>" title="Editar" class="text-decoration-none">
@@ -161,7 +171,7 @@
                             <li><a class="btn btn-light rounded-0" href="#">Próximo &raquo; </a></li>
                 	    <?php } else { $link_next = ($page < $jumlah_page) ? $page + 1 : $jumlah_page; ?>
                             <li>
-                            	<a class="btn btn-light rounded-0" href="?page=<?php echo $link_next; ?>">
+                            	<a class="btn btn-light rounded-0" href="?page=<?php echo $link_next; ?>&dataCadastroInicial=<?php echo $dataCadastroInicial; ?>&dataCadastroFinal=<?php echo $dataCadastroFinal ?>&status=<?php echo $statusFilter; ?>&origem=<?php echo $origemFilter; ?>">
                             		Próximo &raquo;
                             	</a>
                             </li>

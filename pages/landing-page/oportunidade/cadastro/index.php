@@ -60,6 +60,12 @@
     				</div>
     				
     				<div class="col-sm-12 col-md-3 mb-3">
+    					<label class="form-label"> Marca </label>
+                        <input type="text" name="marca" class="form-control form-control-sm" disabled="disabled"
+    						   value="<?php echo isset($objOportunidade['marca']) ? $objOportunidade['marca'] : null; ?>">
+    				</div>
+    				
+    				<div class="col-sm-12 col-md-3 mb-3">
     					<label class="form-label">Tipo</label>
     					<select name="tipo" class="form-select form-select-sm" disabled="disabled">
     						<option value="INDICACAO" <?php echo isset($objOportunidade['tipo']) && $objOportunidade['tipo'] == "INDICACAO" ? 'selected' : null; ?>>Indicação</option>
