@@ -14,6 +14,9 @@ body {
 	background-color: rgba(9, 30, 66, 0.08) !important;
 	box-shadow: inset 0px 1px 11px -4px #999 !important;	
 }
+.table-mobile th, td {
+    white-space: nowrap;
+}
 
 /***** TELA PRINCIPAL *****/
 .card {

@@ -12,7 +12,7 @@ class OportunidadeRepository extends GenericRepository
     public function findAll($filter, $page)
     {
         try {
-            $limit = 15;
+            $limit = 25;
             $limitStart = ($page - 1) * $limit;
             
             $sql = "SELECT * FROM oportunidade WHERE ativo IS TRUE";

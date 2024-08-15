@@ -22,10 +22,10 @@ class Conexao
         $projectStage = new ProjectStage();
 
         if ($projectStage->currentStage() == "DEVELOPMENT") {
-            $this->servidor = "localhost:3307";
-            $this->banco = "fobbi";
-            $this->usuario = "root";
-            $this->senha = "root";
+            $this->servidor = "hsys_fobbi.mysql.dbaas.com.br:3306";
+            $this->banco = "hsys_fobbi";
+            $this->usuario = "hsys_fobbi";
+            $this->senha = "Hsys58si23@";
         } elseif ($projectStage->currentStage() == "PRODUCTION") {
             $this->servidor = "localhost";
             $this->banco = "fobbi";

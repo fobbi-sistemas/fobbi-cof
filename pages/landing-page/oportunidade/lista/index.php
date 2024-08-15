@@ -76,7 +76,7 @@
     		</form>
         	
         	<div class="table-responsive mb-1">
-    			<table class="table table-bordered table-sm" aria-describedby="Obras">
+    			<table class="table table-bordered table-sm table-mobile" aria-describedby="Obras">
     				<thead class="thead-dark">
     					<tr>
     						<th style="width: 5%"> Código </th>
@@ -92,6 +92,7 @@
     						<th style="width: 10%"> Data último pedido </th>
     						<th style="width: 10%"> Valor último pedido </th>
     						<th style="width: 10%"> Loja último pedido </th>
+    						<th style="width: 10%"> Total em pedidos </th>
     						<th style="max-width: 40px;min-width: 40px;"></th>
     					</tr>
     				</thead>
@@ -123,6 +124,7 @@
                                 
                                 <td class="fs-7"><?php echo empty($objEntity['valorUltimoPedido']) ? null : "R$ " . number_format($objEntity['valorUltimoPedido'], 2, ',', '.'); ?></td>
                                 <td class="fs-7"><?php echo $objEntity['lojaUltimoPedido']; ?></td>
+                                <td class="fs-7"><?php echo empty($objEntity['pedidoAcumulado']) ? null : "R$ " . number_format($objEntity['pedidoAcumulado'], 2, ',', '.'); ?></td>
                                 
         						<td class="text-center">
     								<a href="../cadastro?q=<?php echo $objEntity['id']; ?>" title="Editar" class="text-decoration-none">
@@ -148,7 +150,7 @@
                 			</li>
             			<?php } ?>
                 	    <?php
-                	        $jumlah_page = ceil($count / 15);
+                	        $jumlah_page = ceil($count / 25);
                             $jumlah_number = 1;
                             $start_number = ($page > $jumlah_number) ? $page - $jumlah_number : 1;
                             
