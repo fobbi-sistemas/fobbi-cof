@@ -80,7 +80,7 @@
     						<option></option>
     						<?php foreach (Origem::list() as $suborigem) { ?>
                                 <option value="<?php echo $suborigem; ?>"
-                                    <?php echo $objOportunidade['formulario'] === $suborigem ? "selected" : null; ?>>
+                                    <?php echo isset($objOportunidade['formulario']) && $objOportunidade['formulario'] === $suborigem ? "selected" : null; ?>>
                                 	<?php echo Origem::descricao($suborigem); ?>
                                 </option>
                             <?php } ?>
