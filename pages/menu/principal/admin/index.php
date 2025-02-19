@@ -7,23 +7,27 @@
 				</div>
 				
 				<div class="d-grid gap-2 mb-1">
-					<a href="../../../site/home/cadastro" class="btn btn-lg btn-menu"> Site </a>
+					<a href="../../../site/home/cadastro" class="btn btn-menu"> Site </a>
 				</div>
 				
 				<div class="d-grid gap-2 mb-1">
-					<a href="#" class="btn btn-lg btn-menu"> Canais </a>
+					<a href="#" class="btn btn-menu"> Canais </a>
 				</div>
 				
 				<div class="d-grid gap-2 mb-1">
-					<a href="../../../landing-page/oportunidade/lista" class="btn btn-lg btn-menu"> Oportunidades </a>
+					<a href="../../../landing-page/oportunidade/lista" class="btn btn-menu"> Oportunidades </a>
 				</div>
 				
 				<div class="d-grid gap-2 mb-1">
-					<a href="../../../campo-dados/dados/cadastro" class="btn btn-lg btn-menu"> Campos de dados </a>
+					<a href="../../../campo-dados/dados/cadastro" class="btn btn-menu"> Campos de dados </a>
+				</div>
+				
+				<div class="d-grid gap-2 mb-1">
+					<a href="../../../blog/card/lista" class="btn btn-menu"> Blog </a>
 				</div>
 				
 				<div class="d-grid gap-2">
-					<a href="../../../login/realiza-logout.php" class="btn btn-lg btn-light"> Sair </a>
+					<a href="../../../login/realiza-logout.php" class="btn btn-light"> Sair </a>
 				</div>
 			</div>
 		</div>
