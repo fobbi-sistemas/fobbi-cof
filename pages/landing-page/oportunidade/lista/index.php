@@ -47,9 +47,9 @@
             			<label class="form-label"> Status </label>
             			<select name="status" class="form-select form-select-sm">
             				<option value="">- Todos -</option>
-            				<?php foreach (StatusOportunidade::listFacilCatalogos() as $status) { ?>
+            				<?php foreach (StatusOportunidade::list() as $status) { ?>
             					<option value="<?php echo $status; ?>" <?php echo $status == $statusFilter ? 'selected' : null; ?>>
-            						<?php echo StatusOportunidade::descricaoFacilCatalogos($status); ?>
+            						<?php echo StatusOportunidade::descricao($status); ?>
             					</option>
             				<?php } ?>
             			</select>
@@ -80,19 +80,13 @@
     				<thead class="thead-dark">
     					<tr>
     						<th style="width: 5%"> Código </th>
-    						<th style="width: 10%"> Marca </th>
+    						<th style="width: 8%"> Marca </th>
     						<th style="width: 10%"> ID/CNPJ </th>
-    						<th style="width: 20%"> Razão social </th>
-    						<th style="width: 5%"> Telefone </th>
-    						<th style="width: 5%"> E-mail </th>
-    						<th style="width: 5%"> Origem </th>
-    						<th style="width: 5%"> Data </th>
-    						<th style="width: 10%"> Atendimento </th>
-    						<th style="width: 5%"> Status </th>
-    						<th style="width: 10%"> Data último pedido </th>
-    						<th style="width: 10%"> Valor último pedido </th>
-    						<th style="width: 10%"> Loja último pedido </th>
-    						<th style="width: 10%"> Total em pedidos </th>
+    						<th style="width: 29%"> Razão social </th>
+    						<th style="width: 12%"> Data abertura </th>
+    						<th style="width: 12%"> Data atendimento </th>
+    						<th style="width: 12%"> Atendimento </th>
+    						<th style="width: 12%"> Status </th>
     						<th style="max-width: 40px;min-width: 40px;"></th>
     					</tr>
     				</thead>
@@ -104,27 +98,15 @@
         						<td class="fs-7"><?php echo $objEntity['marca']; ?></td>
         						<td class="fs-7"><?php echo $objEntity['idCnpj']; ?></td>
         						<td class="fs-7"><?php echo $objEntity['razaoSocial']; ?></td>
-        						<td class="fs-7"><?php echo $objEntity['telefone']; ?></td>
-        						<td class="fs-7"><?php echo $objEntity['email']; ?></td>
-        						<td class="fs-7">
-                            		<?php echo Origem::descricao($objEntity['origem']); ?>
-                                </td>
-                                
-        						<td class="fs-7"><?php echo date('d/m/Y H:i:s', strtotime($objEntity['data'])); ?></td>
-    
-    							<td class="fs-7"><?php echo $objEntity['observacao']; ?></td>
+        						<td class="fs-7"><?php echo empty($objEntity['dataLead']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataLead'])); ?></td>
+        						<td class="fs-7"><?php echo empty($objEntity['dataAtendimento']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataAtendimento'])); ?></td>
+        						<td class="fs-7"><?php echo $objEntity['atendimento']; ?></td>
         						
                                 <td>
-                                	<span class="badge <?php echo StatusOportunidade::cor($objEntity['statusFacilCatalogos']); ?>">
-                                		<?php echo StatusOportunidade::descricaoFacilCatalogos($objEntity['statusFacilCatalogos']); ?>
+                                	<span class="badge <?php echo StatusOportunidade::cor($objEntity['status']); ?>">
+                                		<?php echo StatusOportunidade::descricao($objEntity['status']); ?>
                                 	</span>
                                 </td>
-                                
-                                <td class="fs-7"><?php echo empty($objEntity['dataUltimoPedido']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataUltimoPedido'])); ?></td>
-                                
-                                <td class="fs-7"><?php echo empty($objEntity['valorUltimoPedido']) ? null : "R$ " . number_format($objEntity['valorUltimoPedido'], 2, ',', '.'); ?></td>
-                                <td class="fs-7"><?php echo $objEntity['lojaUltimoPedido']; ?></td>
-                                <td class="fs-7"><?php echo empty($objEntity['pedidoAcumulado']) ? null : "R$ " . number_format($objEntity['pedidoAcumulado'], 2, ',', '.'); ?></td>
                                 
         						<td class="text-center">
     								<a href="../cadastro?q=<?php echo $objEntity['id']; ?>" title="Editar" class="text-decoration-none">

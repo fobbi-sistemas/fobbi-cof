@@ -6,40 +6,32 @@ class StatusOportunidade
 
     public static function descricao($status)
     {
-        if ("PENDENTE" === $status) {
-            return "Pendente";
-        } elseif ("CADASTRADO" === $status) {
-            return "Cadastrado";
-        } elseif ("ATIVO" === $status) {
-            return "Ativo";
-        } else {
-            return "Pendente";
-        }
-    }
-    
-    public static function descricaoFacilCatalogos($status)
-    {
         if ("ATIVO" === $status) {
             return "Ativo";
         } elseif ("CADASTRADO" === $status) {
             return "Cadastrado";
-        } elseif ("NAO_ENCONTRADO" === $status) {
+        } elseif ("LEAD" === $status) {
             return "Lead";
-        } else {
+        } elseif ("CONSULTANDO" === $status) {
             return "Consultando";
+        }  elseif ("ATENDIMENTO" === $status) {
+            return "Atendimento";
         }
+        return "";
     }
     
     public static function cor($status)
     {
         
-        if ("NAO_ENCONTRADO" === $status) {
+        if ("LEAD" === $status) {
             return "bg-secondary";
         } elseif ("CADASTRADO" === $status) {
             return "bg-warning";
         } elseif ("ATIVO" === $status) {
             return "bg-success";
-        } else {
+        } elseif ("ATENDIMENTO" === $status) {
+            return "bg-primary";
+        }else {
             return "text-dark";
         }
         
@@ -47,12 +39,7 @@ class StatusOportunidade
     
     public static function list()
     {
-        return array("PENDENTE", "CADASTRADO", "ATIVO");
-    }
-    
-    public static function listFacilCatalogos()
-    {
-        return array("NAO_ENCONTRADO", "ATIVO", "CADASTRADO", "CONSULTANDO");
+        return array("LEAD", "ATENDIMENTO", "CADASTRADO", "ATIVO");
     }
 }
 ?>

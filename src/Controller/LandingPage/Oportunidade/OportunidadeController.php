@@ -37,6 +37,15 @@ class OportunidadeController extends GenericController
         }
     }
     
+    public function findByStatus($id)
+    {
+        try {
+            return $this->repository->findByStatus($id);
+        } catch (Exception $ex) {
+            throw new Exception($this->getMessagesError(null));
+        }
+    }
+    
     public function findByCampo($id)
     {
         try {
@@ -72,6 +81,15 @@ class OportunidadeController extends GenericController
     {
         try {
             return $this->repository->delete($id);
+        } catch (Exception $ex) {
+            throw new Exception($this->getMessagesError(null));
+        }
+    }
+    
+    public function validarHistoricoAtendimento($id)
+    {
+        try {
+            return $this->repository->validarHistoricoAtendimento($id);
         } catch (Exception $ex) {
             throw new Exception($this->getMessagesError(null));
         }
