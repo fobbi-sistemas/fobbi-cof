@@ -118,7 +118,7 @@ class OportunidadeRepository extends GenericRepository
     public function findByStatus($id)
     {
         try {
-            $cst = $this->con->conectar()->prepare("SELECT * FROM oportunidade_status WHERE id_oportunidade = :id ORDER BY data ASC;");
+            $cst = $this->con->conectar()->prepare("SELECT * FROM oportunidade_status WHERE id_oportunidade = :id ORDER BY data;");
             $cst->bindParam(":id", $id);
             $cst->execute();
             return $cst->fetchAll(PDO::FETCH_ASSOC);
