@@ -29,7 +29,7 @@ class Conexao
         } elseif ($projectStage->currentStage() == "PRODUCTION") {
             $this->servidor = "localhost";
             $this->banco = "fobbi";
-            $this->usuario = "ftpadmin";
+            $this->usuario = "hsys";
             $this->senha = "fkfgj@34hjf2";
         }
     }
