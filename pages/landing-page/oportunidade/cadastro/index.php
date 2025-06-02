@@ -158,7 +158,7 @@
 				</div>
 
 				<div class="mb-3">
-					<label class="form-label"> Comentário atendimento </label>
+					<label class="form-label"> Observação </label>
 					<textarea rows="4" name="observacao" class="form-control"><?php echo $objOportunidade['observacao']; ?></textarea>
 				</div>
 				

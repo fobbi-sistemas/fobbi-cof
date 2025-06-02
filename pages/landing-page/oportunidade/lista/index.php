@@ -75,49 +75,52 @@
     			</div>
     		</form>
         	
-        	<div class="table-responsive mb-1">
-    			<table class="table table-bordered table-sm table-mobile" aria-describedby="Obras">
-    				<thead class="thead-dark">
-    					<tr>
-    						<th style="width: 5%"> Código </th>
-    						<th style="width: 8%"> Marca </th>
-    						<th style="width: 10%"> ID/CNPJ </th>
-    						<th style="width: 29%"> Razão social </th>
-    						<th style="width: 12%"> Data abertura </th>
-    						<th style="width: 12%"> Data atendimento </th>
-    						<th style="width: 12%"> Atendimento </th>
-    						<th style="width: 12%"> Status </th>
-    						<th style="max-width: 40px;min-width: 40px;"></th>
-    					</tr>
-    				</thead>
-    				
-    				<tbody>
-    					<?php foreach ($list as $objEntity) { ?>
-        					<tr>
-        						<td class="fs-7"><?php echo $objEntity['id']; ?></td>
-        						<td class="fs-7"><?php echo $objEntity['marca']; ?></td>
-        						<td class="fs-7"><?php echo $objEntity['idCnpj']; ?></td>
-        						<td class="fs-7"><?php echo $objEntity['razaoSocial']; ?></td>
-        						<td class="fs-7"><?php echo empty($objEntity['dataLead']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataLead'])); ?></td>
-        						<td class="fs-7"><?php echo empty($objEntity['dataAtendimento']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataAtendimento'])); ?></td>
-        						<td class="fs-7"><?php echo $objEntity['atendimento']; ?></td>
-        						
+        	<div class="scroll-wrapper-top">
+                <div class="scroll-indicator-top"></div>
+            </div>
+            
+            <div class="table-responsive mb-1 table-scroll-bottom">
+                <table class="table table-bordered table-sm table-mobile" aria-describedby="Obras">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th style="width: 5%"> Código </th>
+                            <th style="width: 10%"> ID/CNPJ </th>
+                            <th style="width: 29%"> Razão social </th>
+                            <th style="width: 10%"> Data abertura </th>
+                            <th style="width: 10%"> Tempo de resposta </th>
+                            <th style="width: 10%"> Status </th>
+                            <th style="width: 26%"> Comentário </th>
+                            <th style="max-width: 40px;min-width: 40px;"></th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <?php foreach ($list as $objEntity) { ?>
+                            <tr>
+                                <td class="fs-7"><?php echo $objEntity['id']; ?></td>
+                                <td class="fs-7"><?php echo $objEntity['idCnpj']; ?></td>
+                                <td class="fs-7"><?php echo $objEntity['razaoSocial']; ?></td>
+                                <td class="fs-7"><?php echo empty($objEntity['dataLead']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataLead'])); ?></td>
+                                <td class="fs-7"><?php echo $objEntity['tempo_resposta']; ?></td>
+                                
                                 <td>
-                                	<span class="badge <?php echo StatusOportunidade::cor($objEntity['status']); ?>">
-                                		<?php echo StatusOportunidade::descricao($objEntity['status']); ?>
-                                	</span>
+                                    <span class="badge <?php echo StatusOportunidade::cor($objEntity['status']); ?>">
+                                        <?php echo StatusOportunidade::descricao($objEntity['status']); ?>
+                                    </span>
                                 </td>
                                 
-        						<td class="text-center">
-    								<a href="../cadastro?q=<?php echo $objEntity['id']; ?>" title="Editar" class="text-decoration-none">
-    									<em class="bi bi-pencil"></em>
-    								</a>
-        						</td>
-        					</tr>
-    					<?php } ?>
-    				</tbody>
-    			</table>
-			</div>
+                                <td class="fs-7"><?php echo $objEntity['observacao']; ?></td>
+                                
+                                <td class="text-center">
+                                    <a href="../cadastro?q=<?php echo $objEntity['id']; ?>" title="Editar" class="text-decoration-none">
+                                        <em class="bi bi-pencil"></em>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
 			
 			<div class="row">
 				<div class="col">
@@ -170,5 +173,40 @@
 		</div>
 	</div>
 </div>
+
+<script>
+    $(document).ready(function() {
+        var $scrollWrapperTop = $('.scroll-wrapper-top');
+        var $scrollIndicatorTop = $('.scroll-indicator-top');
+        var $tableScrollBottom = $('.table-scroll-bottom');
+        var $table = $tableScrollBottom.find('table');
+
+        // Definir a largura do indicador superior com base na largura da tabela
+        // Isso é crucial para que a barra de rolagem superior saiba o quão larga ela deve ser
+        function setTopScrollWidth() {
+            var tableWidth = $table.outerWidth();
+            $scrollIndicatorTop.width(tableWidth);
+        }
+
+        // Sincronizar o scroll da div superior com a div da tabela
+        $scrollWrapperTop.on('scroll', function() {
+            $tableScrollBottom.scrollLeft($(this).scrollLeft());
+        });
+
+        // Sincronizar o scroll da div da tabela com a div superior
+        $tableScrollBottom.on('scroll', function() {
+            $scrollWrapperTop.scrollLeft($(this).scrollLeft());
+        });
+
+        // Chamar a função para definir a largura inicial
+        setTopScrollWidth();
+
+        // Se a tabela puder mudar de tamanho (conteúdo dinâmico, responsividade, etc.)
+        // Você pode redefinir a largura do scroll superior quando a janela for redimensionada
+        $(window).on('resize', function() {
+            setTopScrollWidth();
+        });
+    });
+</script>
 
 <?php require_once '../../../footer.php'; ?>

@@ -100,3 +100,36 @@ body {
     background: #000;
 	opacity: 0.5;
 }
+
+/***** SCROLL *****/
+/* Para a div que conterá a barra de rolagem superior */
+.scroll-wrapper-top {
+    width: 100%; /* Ocupa toda a largura disponível */
+    overflow-x: scroll; /* Ativa o scroll horizontal */
+    overflow-y: hidden; /* Esconde o scroll vertical, se houver */
+    height: 20px; /* Altura da barra de rolagem, pode ajustar */
+    margin-bottom: 5px; /* Espaço entre a barra superior e a tabela */
+}
+
+/* O elemento interno que define a largura total do conteúdo para o scroll superior */
+.scroll-indicator-top {
+    height: 1px; /* Mínimo para que a barra de rolagem apareça */
+    /* A largura será definida via JavaScript */
+    /* Garante que o indicador seja visível para o scroll */
+    min-width: 100%; /* Isso é importante para que o scroll apareça mesmo que a tabela não esteja grande no início */
+}
+
+/* Para a div que contém a tabela, onde o scroll horizontal inferior estará */
+.table-scroll-bottom {
+    overflow-x: auto; /* Ativa o scroll horizontal se necessário */
+    /* Certifique-se de que não há overflow-y aqui, a menos que você queira scroll vertical */
+    /* Se precisar de scroll vertical, defina max-height e overflow-y para a div, e não para a tabela */
+}
+
+/* Garante que a tabela não se "quebre" horizontalmente */
+.table-scroll-bottom table {
+    width: auto; /* A tabela se ajusta à largura do conteúdo */
+    /* Remova min-width: 100% se a tabela não estiver transbordando quando deveria.
+       O ideal é que o conteúdo interno das células force a largura da tabela */
+    border-collapse: collapse; /* Boa prática para tabelas */
+}
