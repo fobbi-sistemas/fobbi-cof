@@ -85,7 +85,8 @@
                         <tr>
                             <th style="width: 5%"> Código </th>
                             <th style="width: 10%"> ID/CNPJ </th>
-                            <th style="width: 29%"> Razão social </th>
+                            <th style="width: 20%"> Razão social </th>
+                            <th style="width: 9%"> Telefone </th>
                             <th style="width: 10%"> Data abertura </th>
                             <th style="width: 10%"> Tempo de resposta </th>
                             <th style="width: 10%"> Status </th>
@@ -100,6 +101,7 @@
                                 <td class="fs-7"><?php echo $objEntity['id']; ?></td>
                                 <td class="fs-7"><?php echo $objEntity['idCnpj']; ?></td>
                                 <td class="fs-7"><?php echo $objEntity['razaoSocial']; ?></td>
+                                <td class="fs-7"><?php echo $objEntity['telefone']; ?></td>
                                 <td class="fs-7"><?php echo empty($objEntity['dataLead']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataLead'])); ?></td>
                                 <td class="fs-7"><?php echo $objEntity['tempo_resposta']; ?></td>
                                 
