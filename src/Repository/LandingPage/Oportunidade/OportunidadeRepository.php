@@ -16,11 +16,10 @@ class OportunidadeRepository extends GenericRepository
             $limit = 25;
             $limitStart = ($page - 1) * $limit;
             
-            $sql = "SELECT o.*, osl.data AS dataLead, osla.data AS dataAtendimento,";
+            $sql = "SELECT o.*, osl.data AS dataLeadCadastro,";
             $sql .= " (SELECT nome FROM oportunidade_status WHERE id_oportunidade = o.id ORDER BY data DESC, id DESC LIMIT 1) AS status";
             $sql .= " FROM oportunidade o";
             $sql .= " LEFT JOIN oportunidade_status osl ON o.id = osl.id_oportunidade AND osl.nome = 'LEAD'";
-            $sql .= " LEFT JOIN oportunidade_status osla ON o.id = osla.id_oportunidade AND osla.nome = 'ATENDIMENTO'";
             $sql .= " WHERE ativo IS TRUE";
             
             if (! empty($filter['dataCadastroInicial'])) {

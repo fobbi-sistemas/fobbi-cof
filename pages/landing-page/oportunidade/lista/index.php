@@ -83,26 +83,32 @@
                 <table class="table table-bordered table-sm table-mobile" aria-describedby="Obras">
                     <thead class="thead-dark">
                         <tr>
+							<th style="max-width: 40px;min-width: 40px;"></th>
                             <th style="width: 5%"> Código </th>
                             <th style="width: 10%"> ID/CNPJ </th>
                             <th style="width: 20%"> Razão social </th>
                             <th style="width: 9%"> Telefone </th>
-                            <th style="width: 10%"> Data abertura </th>
+                            <th style="width: 10%"> Data cadastro </th>
                             <th style="width: 10%"> Tempo de resposta </th>
                             <th style="width: 10%"> Status </th>
                             <th style="width: 26%"> Comentário </th>
-                            <th style="max-width: 40px;min-width: 40px;"></th>
                         </tr>
                     </thead>
                     
                     <tbody>
                         <?php foreach ($list as $objEntity) { ?>
                             <tr>
+								<td class="text-center">
+                                    <a href="../cadastro?q=<?php echo $objEntity['id']; ?>" title="Editar" class="text-decoration-none">
+                                        <em class="bi bi-pencil"></em>
+                                    </a>
+                                </td>
+								
                                 <td class="fs-7"><?php echo $objEntity['id']; ?></td>
                                 <td class="fs-7"><?php echo $objEntity['idCnpj']; ?></td>
                                 <td class="fs-7"><?php echo $objEntity['razaoSocial']; ?></td>
                                 <td class="fs-7"><?php echo $objEntity['telefone']; ?></td>
-                                <td class="fs-7"><?php echo empty($objEntity['dataLead']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataLead'])); ?></td>
+                                <td class="fs-7"><?php echo empty($objEntity['dataLeadCadastro']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataLeadCadastro'])); ?></td>
                                 <td class="fs-7"><?php echo $objEntity['tempo_resposta']; ?></td>
                                 
                                 <td>
@@ -113,11 +119,6 @@
                                 
                                 <td class="fs-7"><?php echo $objEntity['observacao']; ?></td>
                                 
-                                <td class="text-center">
-                                    <a href="../cadastro?q=<?php echo $objEntity['id']; ?>" title="Editar" class="text-decoration-none">
-                                        <em class="bi bi-pencil"></em>
-                                    </a>
-                                </td>
                             </tr>
                         <?php } ?>
                     </tbody>
