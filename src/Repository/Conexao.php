@@ -22,7 +22,7 @@ class Conexao
         $projectStage = new ProjectStage();
 
         if ($projectStage->currentStage() == "DEVELOPMENT") {
-            $this->servidor = "localhost:3307";
+            $this->servidor = "localhost:3306";
             $this->banco = "fobbi";
             $this->usuario = "root";
             $this->senha = "root";

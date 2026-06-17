@@ -1,1 +1,0 @@
-ALTER TABLE oportunidade ADD COLUMN idExact INTEGER;

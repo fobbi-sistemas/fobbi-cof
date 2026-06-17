@@ -1,0 +1,1 @@
+ALTER TABLE oportunidade ADD COLUMN pedidoAcumulado decimal(16,3);

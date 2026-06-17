@@ -1,5 +1,0 @@
-CREATE TABLE script (
-	id INTEGER NOT NULL AUTO_INCREMENT,
-	script TEXT,
-  	PRIMARY KEY (`id`)
-);

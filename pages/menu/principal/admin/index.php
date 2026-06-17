@@ -25,6 +25,10 @@
 				<div class="d-grid gap-2 mb-1">
 					<a href="../../../blog/card/lista" class="btn btn-menu"> Blog </a>
 				</div>
+
+				<div class="d-grid gap-2 mb-1">
+					<a href="../../../mc2/registro/lista" class="btn btn-menu"> MC² </a>
+				</div>
 				
 				<div class="d-grid gap-2">
 					<a href="../../../login/realiza-logout.php" class="btn btn-light"> Sair </a>
