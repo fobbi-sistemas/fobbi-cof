@@ -141,6 +141,12 @@
 							value="<?php echo isset($objOportunidade['telefone']) ? $objOportunidade['telefone'] : null; ?>">
 					</div>
 
+					<div class="col-sm-12 col-md-3 mb-3">
+						<label class="form-label"> Código Oportunidade </label> <input
+							type="text" name="codigo_oportunidade" maxlength="255" class="form-control form-control-sm"
+							value="<?php echo isset($objOportunidade['codigo_oportunidade']) ? $objOportunidade['codigo_oportunidade'] : null; ?>">
+					</div>
+
 					<?php foreach ($campoList as $campo) { ?>
 						<div class="col-sm-12 col-md-3 mb-3">
 						<label class="form-label"> <?php echo $campo['nome']; ?> </label>

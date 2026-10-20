@@ -10,7 +10,7 @@ class ProjectStage
 
     public function currentStage()
     {
-        return self::$development;
+        return self::$production;
     }
 
     public function currentVersion()

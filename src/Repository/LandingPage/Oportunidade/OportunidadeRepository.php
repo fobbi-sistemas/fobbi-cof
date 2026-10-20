@@ -150,9 +150,12 @@ class OportunidadeRepository extends GenericRepository
         try {
             $sql = "UPDATE oportunidade SET idCnpj = :idCnpj, pessoaResponsavel = :pessoaResponsavel, email = :email,";
             $sql .= " telefone = :telefone, indicacao = :indicacao, observacao = :observacao, loja = :loja,";
-            $sql .= " razaoSocial = :razaoSocial, nomeFantasia = :nomeFantasia WHERE id = :id";
+            $sql .= " razaoSocial = :razaoSocial, nomeFantasia = :nomeFantasia, codigo_oportunidade = :codigo_oportunidade WHERE id = :id";
+
+            $codigoOportunidade = isset($dados['codigo_oportunidade']) && trim($dados['codigo_oportunidade']) !== '' ? trim($dados['codigo_oportunidade']) : null;
 
             $cst = $this->con->conectar()->prepare($sql);
+            $cst->bindValue(":codigo_oportunidade", $codigoOportunidade);
             $cst->bindParam(":id", $id);
             $cst->bindParam(":idCnpj", $dados['idCnpj']);
             $cst->bindParam(":pessoaResponsavel", $dados['pessoaResponsavel']);

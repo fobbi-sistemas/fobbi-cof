@@ -69,7 +69,7 @@
             		</div>
             		
             		<div class="col text-end mb-3">
-            			<a href="export.php" target="_blank" class="btn btn-light btn-sm">Exportar em CSV</a>
+            			<a href="export.php?<?php echo http_build_query($_GET); ?>"target="_blank" class="btn btn-light btn-sm">Exportar em CSV</a>
             			<input type="submit" name="pesquisar" value="Pesquisar" class="btn btn-primary btn-sm">
             		</div>
     			</div>
@@ -86,7 +86,8 @@
 							<th style="max-width: 40px;min-width: 40px;"></th>
                             <th style="width: 5%"> Código </th>
                             <th style="width: 10%"> ID/CNPJ </th>
-                            <th style="width: 20%"> Razão social </th>
+                            <th style="width: 10%"> Razão social </th>
+                            <th style="width: 10%"> Código Oportunidade </th>
                             <th style="width: 9%"> Telefone </th>
                             <th style="width: 10%"> Data cadastro </th>
                             <th style="width: 10%"> Tempo de resposta </th>
@@ -107,6 +108,7 @@
                                 <td class="fs-7"><?php echo $objEntity['id']; ?></td>
                                 <td class="fs-7"><?php echo $objEntity['idCnpj']; ?></td>
                                 <td class="fs-7"><?php echo $objEntity['razaoSocial']; ?></td>
+                                <td class="fs-7"><?php echo $objEntity['codigo_oportunidade']; ?></td>
                                 <td class="fs-7"><?php echo $objEntity['telefone']; ?></td>
                                 <td class="fs-7"><?php echo empty($objEntity['dataLeadCadastro']) ? null : date('d/m/Y H:i:s', strtotime($objEntity['dataLeadCadastro'])); ?></td>
                                 <td class="fs-7"><?php echo $objEntity['tempo_resposta']; ?></td>

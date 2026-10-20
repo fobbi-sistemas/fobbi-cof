@@ -6,7 +6,7 @@
     require_once '../../../../autoload.php';
     
     $controller = new OportunidadeController();
-    $list = $controller->findByAll();
+    $list = $controller->findAll($_GET, null);
 
     function cabecalho_download_csv($filename) {
         // desabilitar cache
