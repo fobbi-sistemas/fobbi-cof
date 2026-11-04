@@ -1,0 +1,31 @@
+/* Design tokens das telas novas. Telas legadas usam style.css. */
+:root {
+  --fb-blue: #29323b;
+  --fb-blue-dark: #1d242b;
+  --fb-turquoise: #49958b;
+  --fb-turquoise-dark: #3a7a72;
+  --fb-turquoise-light: #eef7f6;
+  --fb-gray: #e5e5e5;
+  --fb-gray-hover: #dadada;
+  --fb-bg: #f4f6f8;
+  --fb-danger: #dc2626;
+  --fb-danger-dark: #b91c1c;
+  --fb-danger-light: #fee2e2;
+  --fb-warning-bg: #fffbeb;
+  --fb-warning-border: #fde68a;
+  --fb-warning-text: #92400e;
+
+  --fb-font-body: 'Quicksand', system-ui, sans-serif;
+  --fb-font-display: 'Outfit', 'Quicksand', system-ui, sans-serif;
+
+  --fb-radius-sm: 12px;
+  --fb-radius-md: 16px;
+  --fb-radius-lg: 24px;
+  --fb-radius-xl: 32px;
+
+  --fb-shadow-card: 0 25px 50px -12px rgba(0, 0, 0, .4);
+  --fb-shadow-soft: 0 20px 40px -15px rgba(41, 50, 59, .18);
+  --fb-shadow-glow: 0 10px 25px -5px rgba(73, 149, 139, .45);
+
+  --fb-transition: .2s ease;
+}

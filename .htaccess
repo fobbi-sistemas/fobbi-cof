@@ -1,0 +1,53 @@
+# ======================================================================
+# fobbi-cof - Restricted Document Root via rewrite (fase 1)
+#
+# Toda requisicao e servida a partir de public/. O que estiver fora dela
+# (src/, sql-dba/, autoload.php, docs/, README.md, .git/) fica inalcancavel por HTTP.
+#
+# Fase 2: substituir por Alias no vhost do Apache e remover este arquivo.
+#   Alias /admin <caminho do site>/admin/public
+# ======================================================================
+
+Options -Indexes -MultiViews
+DirectoryIndex index.php index.html
+
+# Defesa redundante: nega acesso direto ao config.php, ao config.example.php
+# e a variantes de backup (config.php.bak, config.php~, config.php.old, etc.),
+# mesmo que a regra de rewrite abaixo falhe ou seja desabilitada.
+<FilesMatch "^config\.(php|example\.php)(\..+|~)?$">
+    Require all denied
+</FilesMatch>
+
+RewriteEngine On
+
+# --------------------------------------------------------------------
+# Canonizacao: se o /public/ aparecer na URL, redireciona para a versao
+# limpa. Necessario porque o Apache resolve um "Location:" relativo
+# contra a URI interna (ja reescrita), e a aplicacao usa redirects
+# relativos - sem esta regra, o /public/ vaza e nunca mais sai da URL.
+# %1 = prefixo antes de public/, %2 = restante. Mantem portabilidade
+# entre dev e producao sem depender de RewriteBase.
+# --------------------------------------------------------------------
+RewriteCond %{THE_REQUEST} \s/+([^?\s]*?)public/([^?\s]*) [NC]
+RewriteRule ^public/(.*)$ /%1%2 [R=301,L]
+
+# --------------------------------------------------------------------
+# Barra final: adiciona antes de reescrever. Sem isto, o mod_dir faz o
+# redirect de DirectorySlash usando a URI interna e vaza o /public/
+# (a regra acima corrige, mas ao custo de um salto extra).
+# --------------------------------------------------------------------
+RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,8}|/)$
+RewriteRule ^ %{REQUEST_URI}/ [R=301,L]
+
+# Guarda de loop: caminho ja reescrito internamente, para aqui
+RewriteRule ^public/ - [L]
+
+# Tudo entra em public/. O que nao existir la resulta em 404.
+RewriteRule ^(.*)$ public/$1 [L]
+
+# Injecao via query string
+RewriteCond %{QUERY_STRING} (<|%3C).*script.*(>|%3E) [NC,OR]
+RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2}) [OR]
+RewriteCond %{QUERY_STRING} (base64_decode|eval\(|union[[:space:]]+select) [NC]
+RewriteRule .* - [F,L]

@@ -1,1 +1,28 @@
-Options -Indexes
+# ======================================================================
+# Camada 2: independente do mod_rewrite.
+#
+# O .htaccess da raiz ja impede que qualquer request chegue aqui, mas
+# este arquivo sobrevive caso o rewrite falhe ou seja desabilitado.
+#
+# Substitui a versao anterior, que usava apenas "Order deny,allow /
+# Deny from all" - sintaxe Apache 2.2, ignorada no 2.4 sem mod_access_compat.
+#
+# NAO adicionar RewriteEngine aqui: isso descartaria as regras de
+# rewrite do diretorio pai dentro desta pasta.
+# ======================================================================
+
+<IfModule mod_authz_core.c>
+    Require all denied
+</IfModule>
+<IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+</IfModule>
+
+<IfModule mod_php.c>
+    php_flag engine off
+</IfModule>
+RemoveHandler .php .phtml .php5 .php7 .php8
+RemoveType .php .phtml .php5 .php7 .php8
+
+Options -Indexes -ExecCGI

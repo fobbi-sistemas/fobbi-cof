@@ -1,0 +1,27 @@
+.fb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(255, 255, 255, .1);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+}
+
+.fb-badge--tag {
+  border: 0;
+  border-radius: 8px;
+  padding: 4px 12px;
+  color: var(--fb-turquoise-light);
+}
+
+.fb-badge__icon {
+  width: 20px;
+  height: 20px;
+}

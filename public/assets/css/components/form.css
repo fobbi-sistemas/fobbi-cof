@@ -1,0 +1,67 @@
+.fb-field {
+  margin-bottom: 20px;
+}
+
+.fb-label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--fb-blue);
+}
+
+.fb-input-wrap {
+  position: relative;
+}
+
+.fb-input-icon {
+  position: absolute;
+  inset: 0 auto 0 0;
+  padding-left: 16px;
+  display: flex;
+  align-items: center;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.fb-input {
+  width: 100%;
+  padding: 14px 16px 14px 44px;
+  font-size: 14px;
+  font-weight: 500;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--fb-radius-sm);
+  transition: border-color var(--fb-transition), box-shadow var(--fb-transition);
+}
+
+.fb-input::placeholder {
+  color: #94a3b8;
+}
+
+.fb-input:focus {
+  outline: none;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px var(--fb-turquoise);
+}
+
+.fb-input--toggle {
+  padding-right: 46px;
+}
+
+.fb-input-toggle {
+  position: absolute;
+  inset: 0 0 0 auto;
+  padding: 0 16px;
+  border: 0;
+  background: none;
+  color: #94a3b8;
+  cursor: pointer;
+  transition: color var(--fb-transition);
+}
+
+.fb-input-toggle:hover {
+  color: var(--fb-blue);
+}

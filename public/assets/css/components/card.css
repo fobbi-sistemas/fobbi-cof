@@ -1,0 +1,21 @@
+.fb-card {
+  width: 100%;
+  background: rgba(255, 255, 255, .98);
+  border: 1px solid rgba(229, 229, 229, .8);
+  border-radius: var(--fb-radius-xl);
+  padding: 36px;
+  box-shadow: var(--fb-shadow-card);
+}
+
+.fb-card--light {
+  background: #fff;
+  border-color: #f1f5f9;
+  border-radius: var(--fb-radius-lg);
+  box-shadow: var(--fb-shadow-soft);
+}
+
+@media (max-width: 480px) {
+  .fb-card {
+    padding: 28px 22px;
+  }
+}

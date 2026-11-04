@@ -1,0 +1,22 @@
+.fb-alert {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--fb-radius-md);
+}
+
+.fb-alert--warning {
+  background: var(--fb-warning-bg);
+  border: 1px solid var(--fb-warning-border);
+  color: var(--fb-warning-text);
+}
+
+.fb-alert i {
+  flex: none;
+  font-size: 16px;
+  color: #f59e0b;
+}

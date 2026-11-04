@@ -5,12 +5,14 @@ namespace Src\Util;
 class ProjectStage
 {
 
-    private static $development = "DEVELOPMENT";
-    private static $production = "PRODUCTION";
-
-    public function currentStage()
+    public static function currentStage()
     {
-        return self::$production;
+        return AppConfig::get('app_stage', "DEVELOPMENT");
+    }
+
+    public static function currentStageProduction()
+    {
+        return self::currentStage() == "PRODUCTION";
     }
 
     public function currentVersion()

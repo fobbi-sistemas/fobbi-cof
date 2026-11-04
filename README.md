@@ -4,7 +4,7 @@
 
 ### Sobre o Projeto
 
-Este é um projeto de acesso do escritório(backoffice) para realizar gestão de oportunidades/leads, configurações do blog e do site institucional.
+Este é um projeto de acesso do escritório(backoffice) para realizar gestão de oportunidades/leads e campos de dados.
 
 ---
 
@@ -16,6 +16,14 @@ O **Fobbi COF** foi construído com as seguintes tecnologias e frameworks:
 * **Banco de Dados:** MariaDB (Versão 10.11.11)
 * **Estrutura/Modelo/Frameworks:** Bootstrap, jQuery
 * **Servidor Web:** Apache
+
+---
+
+### Estrutura e Documentação
+
+* **Document root:** `public/` (o `.htaccess` da raiz direciona todas as requisições para ele; `src/`, `sql-dba/`, `docs/` e arquivos da raiz não são acessíveis por HTTP).
+* **Configuração:** `config.php` na raiz (fora do versionamento, modelo em `config.example.php`) com `app_stage`, `db_host`, `db_name`, `db_user` e `db_pass`.
+* **Documentação:** [`docs/seguranca_csrf.md`](docs/seguranca_csrf.md) (CSRF e sessão) e [`AGENTS.md`](AGENTS.md) (guia para agentes de IA).
 
 ---
 
@@ -54,14 +62,6 @@ O **Fobbi COF** centraliza funcionalidades cruciais para a gestão e operação 
 #### Gestão de Oportunidades
 
 * **Visualização, Cadastro e Controle:** Gerenciamento completo de oportunidades (leads) recebidas através do formulário de indicação disponível em `https://fobbi.com.br/indicacao`.
-
-#### Gestão do Site Institucional
-
-* **Configurações Diversas:** Permite o cadastro e a gestão de banners, inclusão de scripts e outras configurações gerais do site institucional.
-
-#### Gestão do Blog
-
-* **Configurações Gerais:** Oferece funcionalidades para a administração e configuração de aspectos gerais do blog da Fobbi.
 
 ---
 

@@ -2,7 +2,7 @@
 
 namespace Src\Repository;
 
-use Src\Util\ProjectStage;
+use Src\Util\AppConfig;
 use PDO;
 use PDOException;
 
@@ -19,19 +19,10 @@ class Conexao
 
     public function __construct()
     {
-        $projectStage = new ProjectStage();
-
-        if ($projectStage->currentStage() == "DEVELOPMENT") {
-            $this->servidor = "localhost:3306";
-            $this->banco = "fobbi";
-            $this->usuario = "root";
-            $this->senha = "root";
-        } elseif ($projectStage->currentStage() == "PRODUCTION") {
-            $this->servidor = "localhost";
-            $this->banco = "fobbi";
-            $this->usuario = "hsys";
-            $this->senha = "fkfgj@34hjf2";
-        }
+        $this->servidor = AppConfig::get('db_host', 'localhost:3306');
+        $this->banco = AppConfig::get('db_name', 'fobbi');
+        $this->usuario = AppConfig::get('db_user', 'root');
+        $this->senha = AppConfig::get('db_pass', 'root');
     }
 
     public function conectar()
